@@ -3,7 +3,6 @@ package com.suret.taskdesign.ui
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import com.suret.taskdesign.R
 import kotlinx.android.synthetic.main.fragment_register.*
 
@@ -14,7 +13,6 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
 
 
         sign_tv.setOnClickListener {
-
             activity?.onBackPressed()
         }
 

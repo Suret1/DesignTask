@@ -46,7 +46,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             editor?.putBoolean(Constants.loginBoolean, true)
             editor?.apply()
             editor?.commit()
-            Toast.makeText(requireActivity(),"Logged in", Toast.LENGTH_LONG).show()
             view.findNavController().navigate(R.id.action_loginFragment_to_testFragment)
         }
 

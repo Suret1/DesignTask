@@ -57,7 +57,7 @@
     </fragment>
     <fragment
         android:id="@+id/testFragment"
-        android:name="com.suret.taskdesign.ui.TestFragment"
+        android:name="com.suret.taskdesign.ui.HomeFragment"
         android:label="fragment_test"
-        tools:layout="@layout/fragment_test" />
+        tools:layout="@layout/fragment_home" />
 </navigation>
