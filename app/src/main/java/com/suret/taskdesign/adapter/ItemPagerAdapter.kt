@@ -48,7 +48,6 @@ class ItemPagerAdapter(val list: List<SalesModel>) : PagerAdapter() {
         }.start()
 
         return slideLayout
-
     }
 
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
@@ -58,6 +57,5 @@ class ItemPagerAdapter(val list: List<SalesModel>) : PagerAdapter() {
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
         container.removeView(`object` as View)
     }
-
-
 }
+

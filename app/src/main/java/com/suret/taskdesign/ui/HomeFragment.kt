@@ -1,15 +1,14 @@
 package com.suret.taskdesign.ui
 
-import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
-import android.view.WindowInsetsController
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import com.suret.taskdesign.R
+import com.suret.taskdesign.ChangeStatusBarColor
 import com.suret.taskdesign.adapter.ItemPagerAdapter
 import com.suret.taskdesign.model.SalesModel
 
@@ -17,7 +16,6 @@ import com.suret.taskdesign.model.SalesModel
 class HomeFragment : Fragment(R.layout.fragment_home) {
     private lateinit var viewPager: ViewPager
     val list: MutableList<SalesModel> = arrayListOf()
-
     var runnable: Runnable = Runnable { }
     var handler: Handler = Handler(Looper.getMainLooper())
 
@@ -25,24 +23,25 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         super.onViewCreated(view, savedInstanceState)
 
 
-        val window = requireActivity().window
-        val decorView = window.decorView
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            val wic = decorView.windowInsetsController
-            wic!!.setSystemBarsAppearance(
-                WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS,
-                WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
-            )
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
-        }
+        ChangeStatusBarColor.changeStatusBarColorForDarkMode(
+            requireActivity(),
+            requireContext(),
+            R.color.status_bar_night
+        )
+        ChangeStatusBarColor.changeStatusBarColorForDayMode(
+            requireActivity(),
+            requireContext(),
+            R.color.white
+        )
+
+
 
         list.add(
             SalesModel(
                 "https://cutt.ly/Ec49wPk",
                 "Nike Sale",
-                15522789
+                9607780
             )
         )
         list.add(
@@ -66,7 +65,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         viewPager.adapter = itemPagerAdapter
 
-        indicator.setupWithViewPager(viewPager, true)
+        indicator.setupWithViewPager(viewPager)
 
         sliderTimer(viewPager)
 
@@ -80,9 +79,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 } else {
                     viewPager.currentItem = 0
                 }
-                handler.postDelayed(this, 2200)
+                handler.postDelayed(this, 3000)
             }
         }
         handler.post(runnable)
+
     }
 }

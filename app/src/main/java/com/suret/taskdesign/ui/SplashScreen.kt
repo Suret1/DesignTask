@@ -9,6 +9,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.suret.taskdesign.R
+import com.suret.taskdesign.ChangeStatusBarColor
 import com.suret.taskdesign.constants.Constants
 
 
@@ -18,6 +19,17 @@ class SplashScreen : Fragment(R.layout.fragment_splash_screen) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        ChangeStatusBarColor.changeStatusBarColorForDayMode(
+            requireActivity(),
+            requireContext(),
+            R.color.blue
+        )
+        ChangeStatusBarColor.changeStatusBarColorForDarkMode(
+            requireActivity(),
+            requireContext(),
+            R.color.blue
+        )
+
         val r = Runnable {
             val sharedPreferences: SharedPreferences? = activity?.getSharedPreferences(
                 Constants.userData,
@@ -25,7 +37,7 @@ class SplashScreen : Fragment(R.layout.fragment_splash_screen) {
             )
             val isLogged = sharedPreferences?.getBoolean(Constants.loginBoolean, false)
             if (isLogged == true) {
-                view.findNavController().navigate(R.id.action_splashScreen_to_testFragment)
+                view.findNavController().navigate(R.id.action_splashScreen_to_homeFragment)
             } else {
                 view.findNavController().navigate(R.id.action_splashScreen_to_loginFragment)
             }

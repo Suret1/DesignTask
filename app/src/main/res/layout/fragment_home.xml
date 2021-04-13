@@ -1,25 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="20dp"
     tools:context=".ui.HomeFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/main_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alwaysDrawnWithCache="false"
+            app:menu="@menu/app_bar_menu">
+
+            <EditText
+                android:id="@+id/search_ET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_edittext"
+                android:drawableLeft="@drawable/ic_search"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/poppins"
+                android:hint="Search Product"
+                android:maxLines="1"
+                android:padding="12dp"
+                android:textAlignment="textStart"
+                android:textColor="@color/text_grey"
+                android:textSize="16sp" />
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="220dp" />
+        android:layout_height="220dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/indicator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/viewPager"
+        app:layout_constraintTop_toBottomOf="@id/viewPager"
         app:tabBackground="@drawable/indicator_selector"
         app:tabGravity="center"
         app:tabIndicatorHeight="0dp" />
 
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
