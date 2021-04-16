@@ -98,8 +98,6 @@
         <Button
             android:id="@+id/sign_in_btn"
             style="@style/Theme.CustomButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/sign_in"
@@ -165,8 +163,6 @@
         <Button
             android:id="@+id/sign_in_with_google_btn"
             style="@style/Theme.CustomButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="10dp"
             android:backgroundTint="@android:color/transparent"
@@ -180,8 +176,6 @@
         <Button
             android:id="@+id/sign_in_with_fb_btn"
             style="@style/Theme.CustomButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="10dp"
             android:backgroundTint="@android:color/transparent"
