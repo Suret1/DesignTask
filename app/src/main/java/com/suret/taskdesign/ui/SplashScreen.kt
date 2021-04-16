@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
+import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.suret.taskdesign.ChangeStatusBarColor
@@ -26,7 +27,6 @@ class SplashScreen : Fragment(R.layout.fragment_splash_screen) {
             R.color.blue
         )
 
-
         val r = Runnable {
             val sharedPreferences: SharedPreferences? = activity?.getSharedPreferences(
                 Constants.userData,
@@ -39,7 +39,7 @@ class SplashScreen : Fragment(R.layout.fragment_splash_screen) {
                 view.findNavController().navigate(R.id.action_splashScreen_to_loginFragment)
             }
         }
-        Handler(Looper.getMainLooper()).postDelayed(r, 2000)
+        Handler(Looper.getMainLooper()).postDelayed(r, 2500)
 
     }
 
