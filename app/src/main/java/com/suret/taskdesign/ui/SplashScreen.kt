@@ -8,8 +8,8 @@ import android.os.Looper
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.suret.taskdesign.R
 import com.suret.taskdesign.ChangeStatusBarColor
+import com.suret.taskdesign.R
 import com.suret.taskdesign.constants.Constants
 
 
@@ -19,16 +19,13 @@ class SplashScreen : Fragment(R.layout.fragment_splash_screen) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        ChangeStatusBarColor.changeStatusBarColorForDayMode(
+        ChangeStatusBarColor.changeStatusBarColorForMode(
             requireActivity(),
             requireContext(),
+            R.color.blue,
             R.color.blue
         )
-        ChangeStatusBarColor.changeStatusBarColorForDarkMode(
-            requireActivity(),
-            requireContext(),
-            R.color.blue
-        )
+
 
         val r = Runnable {
             val sharedPreferences: SharedPreferences? = activity?.getSharedPreferences(

@@ -17,15 +17,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-        ChangeStatusBarColor.changeStatusBarColorForDarkMode(
+        ChangeStatusBarColor.changeStatusBarColorForMode(
             requireActivity(),
             requireContext(),
-            R.color.status_bar_night
-        )
-        ChangeStatusBarColor.changeStatusBarColorForDayMode(
-            requireActivity(),
-            requireContext(),
+            R.color.status_bar_night,
             R.color.white
         )
 

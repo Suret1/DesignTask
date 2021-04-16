@@ -13,31 +13,21 @@ import androidx.fragment.app.FragmentActivity
 class ChangeStatusBarColor {
 
     companion object {
-        fun changeStatusBarColorForDarkMode(
+        fun changeStatusBarColorForMode(
             requireActivity: FragmentActivity,
             requireContext: Context,
-            color: Int
+            darkModeColor: Int,
+            dayModeColor: Int
         ) {
             val window: Window = requireActivity.window
             when (requireContext.resources.configuration.uiMode.and(Configuration.UI_MODE_NIGHT_MASK)) {
                 Configuration.UI_MODE_NIGHT_YES -> {
                     window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-                    window.statusBarColor = ContextCompat.getColor(requireContext, color)
+                    window.statusBarColor = ContextCompat.getColor(requireContext, darkModeColor)
                 }
-
-            }
-        }
-
-        fun changeStatusBarColorForDayMode(
-            requireActivity: FragmentActivity,
-            requireContext: Context,
-            color: Int
-        ) {
-            val window: Window = requireActivity.window
-            when (requireContext.resources.configuration.uiMode.and(Configuration.UI_MODE_NIGHT_MASK)) {
                 Configuration.UI_MODE_NIGHT_NO -> {
                     window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-                    window.statusBarColor = ContextCompat.getColor(requireContext, color)
+                    window.statusBarColor = ContextCompat.getColor(requireContext, dayModeColor)
                     val decorView = window.decorView
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                         val wic = decorView.windowInsetsController
@@ -47,7 +37,6 @@ class ChangeStatusBarColor {
                         )
                     } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                         decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
-
                     }
                 }
             }

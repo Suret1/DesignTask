@@ -7,8 +7,8 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
-import com.suret.taskdesign.R
 import com.suret.taskdesign.ChangeStatusBarColor
+import com.suret.taskdesign.R
 import com.suret.taskdesign.adapter.ItemPagerAdapter
 import com.suret.taskdesign.model.SalesModel
 
@@ -21,22 +21,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
-
-        ChangeStatusBarColor.changeStatusBarColorForDarkMode(
+        ChangeStatusBarColor.changeStatusBarColorForMode(
             requireActivity(),
             requireContext(),
-            R.color.status_bar_night
-        )
-        ChangeStatusBarColor.changeStatusBarColorForDayMode(
-            requireActivity(),
-            requireContext(),
+            R.color.status_bar_night,
             R.color.white
         )
-
-
-
         list.add(
             SalesModel(
                 "https://cutt.ly/Ec49wPk",

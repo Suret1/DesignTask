@@ -11,16 +11,10 @@ import kotlinx.android.synthetic.main.fragment_register.*
 class RegisterFragment : Fragment(R.layout.fragment_register) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
-        ChangeStatusBarColor.changeStatusBarColorForDarkMode(
+        ChangeStatusBarColor.changeStatusBarColorForMode(
             requireActivity(),
             requireContext(),
-            R.color.status_bar_night
-        )
-        ChangeStatusBarColor.changeStatusBarColorForDayMode(
-            requireActivity(),
-            requireContext(),
+            R.color.status_bar_night,
             R.color.white
         )
 
