@@ -82,7 +82,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/selector_edittext"
-            android:drawableStart="@drawable/ic_lock"
+            android:drawableStart="@drawable/lock"
             android:drawablePadding="10dp"
             android:drawableTint="@color/color_tint"
             android:fontFamily="@font/poppins"

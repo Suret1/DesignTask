@@ -8,9 +8,9 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
-        android:theme="@style/Theme.AppBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:theme="@style/Theme.AppBarLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -27,9 +27,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/selector_edittext"
-                android:drawableLeft="@drawable/ic_search"
-                android:drawableTint="@color/color_tint"
+                android:drawableLeft="@drawable/search"
                 android:drawablePadding="10dp"
+                android:drawableTint="@color/color_tint"
                 android:fontFamily="@font/poppins"
                 android:hint="Search Product"
                 android:maxLines="1"
@@ -38,11 +38,8 @@
                 android:textColor="@color/text_grey"
                 android:textSize="16sp" />
 
-
         </androidx.appcompat.widget.Toolbar>
-
     </com.google.android.material.appbar.AppBarLayout>
-
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
@@ -56,9 +53,47 @@
         android:id="@+id/indicator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/viewPager"
         app:tabBackground="@drawable/indicator_selector"
         app:tabGravity="center"
         app:tabIndicatorHeight="0dp" />
 
+    <TextView
+        android:id="@+id/category_TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/category"
+        android:textColor="@color/text_blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/indicator" />
+
+    <TextView
+        android:id="@+id/more_category_TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="16dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/more_category"
+        android:textColor="@color/blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/indicator" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/category_recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/category_TV"
+        tools:itemCount="1"
+
+        tools:listitem="@layout/category_list_layout" />
 </androidx.constraintlayout.widget.ConstraintLayout>

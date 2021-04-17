@@ -5,17 +5,26 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import com.suret.taskdesign.ChangeStatusBarColor
 import com.suret.taskdesign.R
+import com.suret.taskdesign.adapter.CategoryRecyclerAdapter
 import com.suret.taskdesign.adapter.ItemPagerAdapter
+import com.suret.taskdesign.model.CategoryModel
+import com.suret.taskdesign.model.CategoryModelListMaker
 import com.suret.taskdesign.model.SalesModel
+import com.suret.taskdesign.model.SalesModelListMaker
+import kotlinx.android.synthetic.main.fragment_home.*
 
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
     private lateinit var viewPager: ViewPager
-    val list: MutableList<SalesModel> = arrayListOf()
+    private var salesList: MutableList<SalesModel> = arrayListOf()
+    private var categoryList: MutableList<CategoryModel> = arrayListOf()
     var runnable: Runnable = Runnable { }
     var handler: Handler = Handler(Looper.getMainLooper())
 
@@ -27,31 +36,18 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             R.color.status_bar_night,
             R.color.white
         )
-        list.add(
-            SalesModel(
-                "https://cutt.ly/Ec49wPk",
-                "Nike Sale",
-                9607780
-            )
-        )
-        list.add(
-            SalesModel(
-                "https://cutt.ly/dc49tUC",
-                "Air Max Sale",
-                9685485
-            )
-        )
-        list.add(
-            SalesModel(
-                "https://cutt.ly/sc49u0i",
-                "Adidas Sale",
-                12854561
-            )
-        )
+        salesList = SalesModelListMaker.salesListMaker()
+
+        categoryList = CategoryModelListMaker.categoryListMaker()
 
         viewPager = view.findViewById(R.id.viewPager)
+
         val indicator = view.findViewById<TabLayout>(R.id.indicator)
-        val itemPagerAdapter = ItemPagerAdapter(list)
+
+        val itemPagerAdapter = ItemPagerAdapter(salesList)
+
+        val categoryRecycler = view.findViewById<RecyclerView>(R.id.category_recyclerView)
+        val categoryAdapter = CategoryRecyclerAdapter(categoryList)
 
         viewPager.adapter = itemPagerAdapter
 
@@ -59,12 +55,18 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         sliderTimer(viewPager)
 
+        categoryRecycler.adapter = categoryAdapter
+
+        more_category_TV.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_categoryFragment)
+        }
+
     }
 
     private fun sliderTimer(viewPager: ViewPager) {
         runnable = object : Runnable {
             override fun run() {
-                if (viewPager.currentItem < list.size - 1) {
+                if (viewPager.currentItem < salesList.size - 1) {
                     viewPager.currentItem = viewPager.currentItem + 1
                 } else {
                     viewPager.currentItem = 0
@@ -73,6 +75,5 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             }
         }
         handler.post(runnable)
-
     }
 }
