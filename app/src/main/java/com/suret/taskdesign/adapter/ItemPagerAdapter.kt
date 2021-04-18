@@ -9,7 +9,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
 import coil.load
-import coil.transform.CircleCropTransformation
 import com.suret.taskdesign.R
 import com.suret.taskdesign.model.SalesModel
 
