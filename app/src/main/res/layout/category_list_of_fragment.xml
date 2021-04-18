@@ -9,17 +9,16 @@
             <Button
                 android:id="@+id/category_btn"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:drawableLeft="@drawable/man_bag"
+                tools:drawableLeft="@drawable/man_bag"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
                 app:iconPadding="20dp"
                 android:padding="20dp"
-                android:fontFamily="@font/poppins_bold"
-                android:text="@string/man_bag"
+                style="@style/Style.TextViewBold"
+                tools:text="@string/man_bag"
                 android:textAlignment="textStart"
                 android:textColor="@color/color_tint_for_category"
-                android:textSize="12sp" />
+                android:textSize="14sp" />
 
 </LinearLayout>

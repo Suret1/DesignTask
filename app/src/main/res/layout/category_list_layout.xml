@@ -21,13 +21,12 @@
 
     <TextView
         android:id="@+id/category_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/Style.TextViewNormal"
         android:layout_marginTop="5dp"
         android:ellipsize="end"
-        android:fontFamily="@font/poppins"
         android:gravity="center"
         android:maxLines="2"
+        android:textColor="@color/text_grey"
         android:textSize="10sp"
         tools:text="Man Shirt" />
 

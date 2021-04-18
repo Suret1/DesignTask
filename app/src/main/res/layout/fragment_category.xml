@@ -10,28 +10,21 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/barLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/Theme.AppBarLayout">
+        style="@style/Style.AppBarLayout"
+        android:theme="@style/Style.AppBarLayout">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/Style.AppBarLayout"
             app:contentInsetStart="0dp"
             app:contentInsetStartWithNavigation="0dp">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_bold"
-                android:gravity="start"
+                style="@style/Style.TextViewBold"
                 android:text="@string/category"
-                android:textColor="@color/text_blue"
                 android:textSize="16sp" />
 
         </androidx.appcompat.widget.Toolbar>
-
 
     </com.google.android.material.appbar.AppBarLayout>
 

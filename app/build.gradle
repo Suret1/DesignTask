@@ -52,5 +52,5 @@ dependencies {
     implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
 
     //COil
-    implementation("io.coil-kt:coil:1.1.1")
+    implementation("io.coil-kt:coil:1.2.0")
 }

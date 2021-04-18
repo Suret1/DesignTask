@@ -13,7 +13,9 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
-    <style name="Theme.AppBarLayout" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Style.AppBarLayout" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="colorPrimary">@color/black</item>
         <item name="colorPrimaryVariant">@color/black</item>
         <item name="colorOnPrimary">@color/black</item>
@@ -24,7 +26,7 @@
         <item name="colorOnSecondary">@color/black</item>
     </style>
 
-    <style name="Theme.CustomButton" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Style.CustomButton" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/rounded_button_dark</item>
@@ -34,5 +36,19 @@
         <item name="android:textAlignment">center</item>
         <item name="android:textColor">@color/text_grey</item>
         <item name="android:padding">12dp</item>
+    </style>
+    <style name="Style.TextViewBold" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/status_bar_night</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="Style.TextViewNormal" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/poppins</item>
+        <item name="android:textColor">@color/status_bar_night</item>
+        <item name="android:textSize">12sp</item>
     </style>
 </resources>
