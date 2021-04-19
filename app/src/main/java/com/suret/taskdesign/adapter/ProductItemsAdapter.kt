@@ -10,9 +10,8 @@ import coil.load
 import com.suret.taskdesign.R
 import com.suret.taskdesign.model.SuperFlashSaleModel
 
-class FlashSaleRecyclerAdapter(private val flashList: MutableList<SuperFlashSaleModel>) :
-    RecyclerView.Adapter<FlashSaleRecyclerAdapter.MyViewHolder>() {
-
+class ProductItemsAdapter(private val productList: MutableList<SuperFlashSaleModel>) :
+    RecyclerView.Adapter<ProductItemsAdapter.MyViewHolder>() {
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.flash_sale_IW)
@@ -22,14 +21,15 @@ class FlashSaleRecyclerAdapter(private val flashList: MutableList<SuperFlashSale
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val view = layoutInflater.inflate(R.layout.flash_sale_items, parent, false)
+        val view = layoutInflater.inflate(R.layout.product_items, parent, false)
         return MyViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.imageView.load(flashList[position].sale_url_image)
-        holder.textTitle.text = flashList[position].saleTitle
-        holder.textPrice.text = flashList[position].salePrice
+        holder.imageView.load(productList[position].sale_url_image)
+        holder.textTitle.text = productList[position].saleTitle
+        holder.textPrice.text = productList[position].salePrice
     }
     override fun getItemCount(): Int = 4
 }
+

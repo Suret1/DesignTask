@@ -14,6 +14,7 @@ import com.suret.taskdesign.R
 import com.suret.taskdesign.adapter.CategoryRecyclerAdapter
 import com.suret.taskdesign.adapter.FlashSaleRecyclerAdapter
 import com.suret.taskdesign.adapter.ItemPagerAdapter
+import com.suret.taskdesign.adapter.ProductItemsAdapter
 import com.suret.taskdesign.listmaker.CategoryModelListMaker
 import com.suret.taskdesign.listmaker.FlashSaleModelListMaker
 import com.suret.taskdesign.listmaker.SalesModelListMaker
@@ -54,9 +55,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val categoryRecycler = view.findViewById<RecyclerView>(R.id.category_recyclerView)
         val flashRecycler = view.findViewById<RecyclerView>(R.id.flash_sale_recycler)
         val megaRecycler = view.findViewById<RecyclerView>(R.id.mega_sale_recycler)
+        val gridRecycler = view.findViewById<RecyclerView>(R.id.grid_recycler)
 
         val categoryAdapter = CategoryRecyclerAdapter(categoryList)
         val flashSaleAdapter = FlashSaleRecyclerAdapter(flashSaleList)
+        val gridAdapter = ProductItemsAdapter(flashSaleList)
 
         viewPager.adapter = itemPagerAdapter
 
@@ -69,6 +72,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         flashRecycler.adapter = flashSaleAdapter
 
         megaRecycler.adapter = flashSaleAdapter
+
+        gridRecycler.adapter = gridAdapter
 
         more_category_TV.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_categoryFragment)
