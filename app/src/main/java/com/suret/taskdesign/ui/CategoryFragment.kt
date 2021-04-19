@@ -9,7 +9,7 @@ import com.suret.taskdesign.ChangeStatusBarColor
 import com.suret.taskdesign.R
 import com.suret.taskdesign.adapter.FragmentCategoryRecyclerAdapter
 import com.suret.taskdesign.model.CategoryModel
-import com.suret.taskdesign.model.CategoryModelListMaker
+import com.suret.taskdesign.listmaker.CategoryModelListMaker
 
 
 class CategoryFragment : Fragment(R.layout.fragment_category) {

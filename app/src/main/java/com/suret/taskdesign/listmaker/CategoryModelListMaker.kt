@@ -1,6 +1,7 @@
-package com.suret.taskdesign.model
+package com.suret.taskdesign.listmaker
 
 import com.suret.taskdesign.R
+import com.suret.taskdesign.model.CategoryModel
 
 class CategoryModelListMaker {
     companion object {

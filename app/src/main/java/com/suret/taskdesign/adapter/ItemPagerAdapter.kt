@@ -21,7 +21,7 @@ class ItemPagerAdapter(val list: List<SalesModel>) : PagerAdapter() {
 
         val layoutInflater =
             container.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val slideLayout: View = layoutInflater.inflate(R.layout.sales_item_layout, container, false)
+        val slideLayout: View = layoutInflater.inflate(R.layout.sale_item_layout, container, false)
 
         val imageView = slideLayout.findViewById<ImageView>(R.id.sales_imageView)
         val textView = slideLayout.findViewById<TextView>(R.id.sales_textView)

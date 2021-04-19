@@ -42,6 +42,8 @@
     <style name="Style.TextViewBold" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">2</item>
         <item name="fontFamily">@font/poppins_bold</item>
         <item name="android:textColor">@color/text_blue</item>
         <item name="android:textSize">14sp</item>
@@ -53,6 +55,12 @@
         <item name="fontFamily">@font/poppins</item>
         <item name="android:textColor">@color/text_blue</item>
         <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Style.CardViewBackGround" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="strokeColor">@color/blue</item>
+        <item name="cardCornerRadius">12dp</item>
+        <item name="strokeWidth">10dp</item>
     </style>
 
 </resources>

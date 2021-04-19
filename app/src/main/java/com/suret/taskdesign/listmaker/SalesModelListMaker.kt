@@ -1,4 +1,6 @@
-package com.suret.taskdesign.model
+package com.suret.taskdesign.listmaker
+
+import com.suret.taskdesign.model.SalesModel
 
 class SalesModelListMaker {
 
