@@ -6,7 +6,6 @@ import android.os.Looper
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import com.suret.taskdesign.ChangeStatusBarColor
@@ -25,12 +24,11 @@ import kotlinx.android.synthetic.main.fragment_home.*
 
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
-    private lateinit var viewPager: ViewPager
     private var salesList: MutableList<SalesModel> = arrayListOf()
     private var categoryList: MutableList<CategoryModel> = arrayListOf()
     private var flashSaleList: MutableList<SuperFlashSaleModel> = arrayListOf()
-    var runnable: Runnable = Runnable { }
-    var handler: Handler = Handler(Looper.getMainLooper())
+    private var runnable: Runnable = Runnable { }
+    private var handler: Handler = Handler(Looper.getMainLooper())
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -46,16 +44,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         flashSaleList = FlashSaleModelListMaker.flashSaleListMaker()
 
-        viewPager = view.findViewById(R.id.viewPager)
-
-        val indicator = view.findViewById<TabLayout>(R.id.indicator)
-
         val itemPagerAdapter = ItemPagerAdapter(salesList)
-
-        val categoryRecycler = view.findViewById<RecyclerView>(R.id.category_recyclerView)
-        val flashRecycler = view.findViewById<RecyclerView>(R.id.flash_sale_recycler)
-        val megaRecycler = view.findViewById<RecyclerView>(R.id.mega_sale_recycler)
-        val gridRecycler = view.findViewById<RecyclerView>(R.id.grid_recycler)
 
         val categoryAdapter = CategoryRecyclerAdapter(categoryList)
         val flashSaleAdapter = FlashSaleRecyclerAdapter(flashSaleList)
@@ -67,13 +56,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         sliderTimer(viewPager)
 
-        categoryRecycler.adapter = categoryAdapter
+        category_recyclerView.adapter = categoryAdapter
 
-        flashRecycler.adapter = flashSaleAdapter
+        flash_sale_recycler.adapter = flashSaleAdapter
 
-        megaRecycler.adapter = flashSaleAdapter
+        mega_sale_recycler.adapter = flashSaleAdapter
 
-        gridRecycler.adapter = gridAdapter
+        grid_recycler.adapter = gridAdapter
 
         more_category_TV.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_categoryFragment)
