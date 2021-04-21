@@ -3,7 +3,6 @@ package com.suret.taskdesign.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -12,7 +11,7 @@ import com.suret.taskdesign.model.CategoryModel
 
 class CategoryRecyclerAdapter(
     private val categoryList: MutableList<CategoryModel>,
-    ) :
+) :
     RecyclerView.Adapter<CategoryRecyclerAdapter.MyViewHolder>() {
 
 
@@ -34,6 +33,6 @@ class CategoryRecyclerAdapter(
 
     }
 
-    override fun getItemCount(): Int = 7
+    override fun getItemCount(): Int = categoryList.size
 
 }

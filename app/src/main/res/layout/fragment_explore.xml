@@ -1,14 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="?attr/actionBarSize"
     tools:context=".ui.explore.ExploreFragment">
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="EXPLORE FRAGMENT" />
+        android:layout_height="wrap_content">
 
-</FrameLayout>
+        <!--        <com.google.android.material.appbar.AppBarLayout-->
+        <!--            android:id="@+id/appBarLayout_explores"-->
+        <!--            style="@style/Style.AppBarLayout"-->
+        <!--            android:theme="@style/Style.AppBarLayout"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent">-->
+
+        <!--            <androidx.appcompat.widget.Toolbar-->
+        <!--                android:id="@+id/toolbar_explore"-->
+        <!--                style="@style/Style.AppBarLayout"-->
+        <!--                android:alwaysDrawnWithCache="false"-->
+        <!--                app:menu="@menu/app_bar_menu">-->
+
+        <!--                <EditText-->
+        <!--                    android:id="@+id/search_ET"-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:background="@drawable/selector_edittext"-->
+        <!--                    android:drawableLeft="@drawable/search"-->
+        <!--                    android:drawablePadding="10dp"-->
+        <!--                    android:drawableTint="@color/color_tint"-->
+        <!--                    android:fontFamily="@font/poppins"-->
+        <!--                    android:hint="Search Product"-->
+        <!--                    android:maxLines="1"-->
+        <!--                    android:padding="12dp"-->
+        <!--                    android:textColor="@color/text_grey"-->
+        <!--                    android:textSize="16sp" />-->
+        <!--            </androidx.appcompat.widget.Toolbar>-->
+        <!--        </com.google.android.material.appbar.AppBarLayout>-->
+
+        <TextView
+            android:id="@+id/man_fashion_tv"
+            style="@style/Style.TextViewBold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/man_fashion"
+            app:layout_constraintBottom_toTopOf="@id/man_fashion_recycler"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/man_fashion_recycler"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            android:padding="4dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/man_fashion_tv"
+            app:spanCount="4"
+            tools:listitem="@layout/category_list_layout" />
+
+        <TextView
+            android:id="@+id/woman_fashion_tv"
+            style="@style/Style.TextViewBold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/woman_fashion"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/man_fashion_recycler" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/woman_fashion_recycler"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            android:padding="4dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/woman_fashion_tv"
+            app:spanCount="4"
+            tools:listitem="@layout/category_list_layout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

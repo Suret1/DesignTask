@@ -41,5 +41,6 @@
     <string name="high_heels">High Heels</string>
     <string name="skirt">Skirt</string>
     <string name="man_pants">Man Pants</string>
-
+    <string name="man_fashion">Man Fashion</string>
+    <string name="woman_fashion">Woman Fashion</string>
 </resources>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:layout_marginHorizontal="4dp"
     android:background="@color/white"
     android:backgroundTint="@android:color/transparent"
     android:gravity="center"
-    android:orientation="vertical">
+    android:padding="8dp">
 
     <ImageView
         android:id="@+id/category_icon"
@@ -16,17 +16,25 @@
         android:layout_height="70dp"
         android:background="@drawable/category_element"
         android:scaleType="center"
+        app:layout_constraintBottom_toTopOf="@id/category_title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:src="@drawable/man_shirt" />
 
     <TextView
         android:id="@+id/category_title"
         style="@style/Style.TextViewNormal"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         android:ellipsize="end"
         android:maxLines="2"
+        android:textAlignment="center"
         android:textColor="@color/text_grey"
         android:textSize="10sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/category_icon"
         tools:text="Man Shirt" />
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

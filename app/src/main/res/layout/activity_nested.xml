@@ -12,6 +12,39 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/nested_nav_graph" />
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        style="@style/Style.AppBarLayout"
+        android:theme="@style/Style.AppBarLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/main_toolbar"
+            style="@style/Style.AppBarLayout"
+            android:alwaysDrawnWithCache="false"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            app:menu="@menu/app_bar_menu">
+
+            <EditText
+                android:id="@+id/search_ET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_edittext"
+                android:drawableLeft="@drawable/search"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/color_tint"
+                android:fontFamily="@font/poppins"
+                android:hint="Search Product"
+                android:maxLines="1"
+                android:padding="12dp"
+                android:textColor="@color/text_grey"
+                android:textSize="16sp" />
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
@@ -21,7 +54,7 @@
         app:itemRippleColor="@color/text_blue"
         app:itemTextColor="@color/color_tint_for_bat_nav"
         app:labelVisibilityMode="labeled"
-        app:menu="@menu/bottom_nav_menu"
-        app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"/>
+        app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
+        app:menu="@menu/bottom_nav_menu" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
