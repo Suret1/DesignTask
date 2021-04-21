@@ -1,8 +1,8 @@
-package com.suret.taskdesign
+package com.suret.taskdesign.activity
 
 import android.os.Bundle
-import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
+import com.suret.taskdesign.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

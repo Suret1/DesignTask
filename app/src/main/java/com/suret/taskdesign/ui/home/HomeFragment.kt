@@ -1,14 +1,15 @@
-package com.suret.taskdesign.ui
+package com.suret.taskdesign.ui.home
 
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
+import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager.widget.ViewPager
-import com.google.android.material.tabs.TabLayout
-import com.suret.taskdesign.ChangeStatusBarColor
 import com.suret.taskdesign.R
 import com.suret.taskdesign.adapter.CategoryRecyclerAdapter
 import com.suret.taskdesign.adapter.FlashSaleRecyclerAdapter
@@ -32,12 +33,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        ChangeStatusBarColor.changeStatusBarColorForMode(
-            requireActivity(),
-            requireContext(),
-            R.color.status_bar_night,
-            R.color.white
-        )
+
+        main_toolbar.setOnMenuItemClickListener {
+            onOptionsItemSelected(it)
+        }
         salesList = SalesModelListMaker.salesListMaker()
 
         categoryList = CategoryModelListMaker.categoryListMaker()
@@ -68,6 +67,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             findNavController().navigate(R.id.action_homeFragment_to_categoryFragment)
         }
 
+        see_more_tv.setOnClickListener {
+            findNavController().navigate(R.id.action_home_to_superFlashSaleFragment)
+        }
+
+        mega_see_more_TV.setOnClickListener {
+            findNavController().navigate(R.id.action_home_to_superFlashSaleFragment)
+        }
     }
 
     private fun sliderTimer(viewPager: ViewPager) {
@@ -83,4 +89,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
         handler.post(runnable)
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.favorite -> findNavController().navigate(R.id.action_home_to_favoriteFragment)
+            R.id.notification -> Log.d("dumb", "dumb")
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 }

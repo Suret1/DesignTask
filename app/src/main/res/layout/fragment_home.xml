@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.HomeFragment">
+    android:fillViewport="true"
+    tools:context=".ui.home.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -105,6 +106,7 @@
             app:layout_constraintTop_toBottomOf="@id/category_recyclerView" />
 
         <TextView
+            android:id="@+id/see_more_tv"
             style="@style/Style.TextViewBold"
             android:layout_marginTop="16dp"
             android:layout_marginRight="16dp"
@@ -136,6 +138,7 @@
             app:layout_constraintTop_toBottomOf="@id/flash_sale_recycler" />
 
         <TextView
+            android:id="@+id/mega_see_more_TV"
             style="@style/Style.TextViewBold"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
@@ -164,7 +167,6 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginBottom="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/mega_sale_recycler">
@@ -219,11 +221,9 @@
             android:layout_height="wrap_content"
             android:padding="8dp"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/recommend_cardView"
             app:spanCount="2" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="start"
     android:orientation="vertical"
-    tools:context=".ui.CategoryFragment">
+    tools:context=".ui.category.CategoryFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/barLayout"
@@ -14,7 +14,7 @@
         android:theme="@style/Style.AppBarLayout">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/category_toolbar"
             style="@style/Style.AppBarLayout"
             app:contentInsetStart="0dp"
             app:contentInsetStartWithNavigation="0dp">

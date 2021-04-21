@@ -1,4 +1,4 @@
-package com.suret.taskdesign.ui
+package com.suret.taskdesign.ui.register
 
 import android.os.Bundle
 import android.view.View

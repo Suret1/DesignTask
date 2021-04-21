@@ -1,5 +1,6 @@
 package com.suret.taskdesign
 
+import android.app.Activity
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Build
@@ -8,18 +9,17 @@ import android.view.Window
 import android.view.WindowInsetsController
 import android.view.WindowManager
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.FragmentActivity
 
 class ChangeStatusBarColor {
 
     companion object {
         fun changeStatusBarColorForMode(
-            requireActivity: FragmentActivity,
+            activity: Activity,
             requireContext: Context,
             darkModeColor: Int,
             dayModeColor: Int
         ) {
-            val window: Window = requireActivity.window
+            val window: Window = activity.window
             when (requireContext.resources.configuration.uiMode.and(Configuration.UI_MODE_NIGHT_MASK)) {
                 Configuration.UI_MODE_NIGHT_YES -> {
                     window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
