@@ -34,9 +34,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        main_toolbar.setOnMenuItemClickListener {
-//            onOptionsItemSelected(it)
-//        }
         salesList = SalesModelListMaker.salesListMaker()
 
         categoryList = CategoryModelListMaker.categoryListMaker()
@@ -89,13 +86,5 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
         handler.post(runnable)
     }
-
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        when (item.itemId) {
-//            R.id.favorite -> findNavController().navigate(R.id.action_home_to_favoriteFragment)
-//            R.id.notification -> Log.d("dumb", "dumb")
-//        }
-//        return super.onOptionsItemSelected(item)
-//    }
 
 }

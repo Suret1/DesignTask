@@ -2,9 +2,7 @@ package com.suret.taskdesign.ui.category
 
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import com.suret.taskdesign.R
 import com.suret.taskdesign.adapter.FragmentCategoryRecyclerAdapter
 import com.suret.taskdesign.listmaker.CategoryModelListMaker
@@ -24,7 +22,7 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
 
 
         category_toolbar.setNavigationOnClickListener {
-            view.findNavController().navigate(R.id.action_categoryFragment_to_homeFragment)
+            activity?.onBackPressed()
         }
 
         val fragmentCategoryRecyclerAdapter =
@@ -34,7 +32,6 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
 
 
     }
-
 
 
 }

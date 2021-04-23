@@ -14,23 +14,17 @@
             android:id="@+id/action_homeFragment_to_categoryFragment"
             app:destination="@id/categoryFragment"
             app:enterAnim="@anim/enter_from_right"
-            app:exitAnim="@anim/exit_to_right"
-            app:popEnterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_from_left"
             app:popExitAnim="@anim/exit_to_right" />
         <action
             android:id="@+id/action_home_to_superFlashSaleFragment"
             app:destination="@id/superFlashSaleFragment"
             app:enterAnim="@anim/enter_from_right"
-            app:exitAnim="@anim/exit_to_right"
-            app:popEnterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_from_left"
             app:popExitAnim="@anim/exit_to_right" />
-        <action
-            android:id="@+id/action_home_to_favoriteFragment"
-            app:destination="@id/favorite"
-            app:enterAnim="@anim/enter_from_right"
-            app:exitAnim="@anim/exit_to_right"
-            app:popEnterAnim="@anim/enter_from_right"
-            app:popExitAnim="@anim/exit_to_right" />
+
 
     </fragment>
     <fragment
@@ -41,11 +35,7 @@
         <action
             android:id="@+id/action_categoryFragment_to_homeFragment"
             app:destination="@id/home"
-            app:enterAnim="@anim/enter_from_left"
-            app:exitAnim="@anim/exit_to_left"
             app:launchSingleTop="true"
-            app:popEnterAnim="@anim/enter_from_left"
-            app:popExitAnim="@anim/exit_to_left"
             app:popUpTo="@id/nested_nav_graph"
             app:popUpToInclusive="true" />
     </fragment>
@@ -76,17 +66,5 @@
         android:id="@+id/favorite"
         android:name="com.suret.taskdesign.ui.favorite.FavoriteFragment"
         android:label="fragment_favorite"
-        tools:layout="@layout/fragment_favorite">
-        <action
-            android:id="@+id/action_favoriteFragment_to_home"
-            app:destination="@id/nested_nav_graph"
-            app:enterAnim="@anim/enter_from_left"
-            app:exitAnim="@anim/exit_to_left"
-            app:launchSingleTop="true"
-            app:popEnterAnim="@anim/enter_from_left"
-            app:popExitAnim="@anim/exit_to_left"
-            app:popUpTo="@id/nested_nav_graph"
-            app:popUpToInclusive="true" />
-
-    </fragment>
+        tools:layout="@layout/fragment_favorite"></fragment>
 </navigation>

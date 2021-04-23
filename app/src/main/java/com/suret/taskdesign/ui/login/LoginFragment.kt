@@ -6,8 +6,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.suret.taskdesign.R
 import com.suret.taskdesign.ChangeStatusBarColor
+import com.suret.taskdesign.R
 import com.suret.taskdesign.constants.Constants
 import kotlinx.android.synthetic.main.fragment_login.*
 

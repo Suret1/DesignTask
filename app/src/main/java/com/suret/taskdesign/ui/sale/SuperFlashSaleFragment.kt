@@ -3,7 +3,6 @@ package com.suret.taskdesign.ui.sale
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import com.suret.taskdesign.R
 import com.suret.taskdesign.adapter.ItemPagerAdapter
 import com.suret.taskdesign.adapter.ProductItemsAdapter
@@ -36,7 +35,7 @@ class SuperFlashSaleFragment : Fragment(R.layout.fragment_super_flash_sale) {
         flash_sale_toolbar.setNavigationIcon(R.drawable.back_btn)
 
         flash_sale_toolbar.setNavigationOnClickListener {
-            view.findNavController().navigate(R.id.action_superFlashSaleFragment_to_home)
+            activity?.onBackPressed()
         }
 
 

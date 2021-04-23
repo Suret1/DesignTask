@@ -25,8 +25,7 @@ class NestedActivity : AppCompatActivity() {
             //empty
         }
         setSupportActionBar(main_toolbar)
-        main_toolbar.showOverflowMenu()
-        main_toolbar.inflateMenu(R.menu.app_bar_menu)
+
         main_toolbar.setOnMenuItemClickListener {
             onOptionsItemSelected(it)
         }
@@ -66,6 +65,5 @@ class NestedActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.app_bar_menu,menu)
         return super.onPrepareOptionsMenu(menu)
     }
-
 
 }
