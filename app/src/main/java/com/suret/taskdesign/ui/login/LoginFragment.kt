@@ -38,8 +38,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             editor?.putBoolean(Constants.loginBoolean, true)
             editor?.apply()
             editor?.commit()
-            view.findNavController().navigate(R.id.action_login_to_nested_nav_graph)
-            requireActivity().finish()
+            view.findNavController().navigate(R.id.action_login_to_nestedFragment)
         }
 
 

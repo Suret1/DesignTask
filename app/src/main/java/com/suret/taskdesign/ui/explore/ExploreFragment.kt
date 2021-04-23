@@ -23,12 +23,10 @@ class ExploreFragment : Fragment(R.layout.fragment_explore) {
         categoryForMan = CategoryModelListMaker.categoryListForMan()
         categoryForWoman = CategoryModelListMaker.categoryListForWoman()
 
-
         val manAdapter = CategoryRecyclerAdapter(categoryForMan)
         man_fashion_recycler.adapter = manAdapter
         val womanAdapter = CategoryRecyclerAdapter(categoryForWoman)
         woman_fashion_recycler.adapter = womanAdapter
-
 
     }
 

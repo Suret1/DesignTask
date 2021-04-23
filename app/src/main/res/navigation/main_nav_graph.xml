@@ -20,9 +20,17 @@
             app:popExitAnim="@anim/exit_to_right"
             app:popUpTo="@id/nav_graph"
             app:popUpToInclusive="true" />
+
         <action
-            android:id="@+id/action_splash_to_nested_nav_graph"
-            app:destination="@id/nested_navigation" />
+            android:id="@+id/action_splashScreen_to_nestedFragment"
+            app:destination="@id/nestedFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
 
 
     </fragment>
@@ -35,12 +43,19 @@
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment"
             app:enterAnim="@anim/enter_from_right"
-            app:exitAnim="@anim/exit_to_right"
-            app:popEnterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_from_left"
             app:popExitAnim="@anim/exit_to_right" />
+
         <action
-            android:id="@+id/action_login_to_nested_nav_graph"
-            app:destination="@id/nested_navigation" />
+            android:id="@+id/action_login_to_nestedFragment"
+            app:destination="@id/nestedFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
 
 
     </fragment>
@@ -51,21 +66,51 @@
         tools:layout="@layout/fragment_register">
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
-            app:destination="@id/loginFragment"
-            app:enterAnim="@anim/enter_from_left"
-            app:exitAnim="@anim/exit_to_left"
-            app:popEnterAnim="@anim/enter_from_left"
-            app:popExitAnim="@anim/exit_to_left" />
+            app:destination="@id/loginFragment" />
     </fragment>
 
-    <navigation
-        android:id="@+id/nested_navigation"
-        app:startDestination="@id/nestedActivity">
-        <activity
-            android:id="@+id/nestedActivity"
-            android:name="com.suret.taskdesign.activity.NestedActivity"
-            android:label="NestedActivity" />
-    </navigation>
+    <fragment
+        android:id="@+id/nestedFragment"
+        android:name="com.suret.taskdesign.ui.nested.NestedFragment"
+        android:label="fragment_nested"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_nestedFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
+        <action
+            android:id="@+id/action_nestedFragment_to_superFlashSaleFragment"
+            app:destination="@id/superFlashSaleFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.suret.taskdesign.ui.category.CategoryFragment"
+        android:label="fragment_category"
+        tools:layout="@layout/fragment_nested">
+        <action
+            android:id="@+id/action_categoryFragment_to_homeFragment"
+            app:destination="@id/home"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/superFlashSaleFragment"
+        android:name="com.suret.taskdesign.ui.sale.SuperFlashSaleFragment"
+        android:label="fragment_super_flash_sale"
+        tools:layout="@layout/fragment_super_flash_sale">
+        <action
+            android:id="@+id/action_superFlashSaleFragment_to_home"
+            app:destination="@id/home"
+            app:enterAnim="@anim/enter_from_left"
+            app:exitAnim="@anim/exit_to_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_left"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
 
 
 </navigation>

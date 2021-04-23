@@ -3,10 +3,7 @@ package com.suret.taskdesign.ui.home
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
-import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager.widget.ViewPager
@@ -33,6 +30,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
 
         salesList = SalesModelListMaker.salesListMaker()
 
@@ -61,15 +60,15 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         grid_recycler.adapter = gridAdapter
 
         more_category_TV.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_categoryFragment)
+            findNavController().navigate(R.id.action_nestedFragment_to_categoryFragment)
         }
 
         see_more_tv.setOnClickListener {
-            findNavController().navigate(R.id.action_home_to_superFlashSaleFragment)
+            findNavController().navigate(R.id.action_nestedFragment_to_superFlashSaleFragment)
         }
 
         mega_see_more_TV.setOnClickListener {
-            findNavController().navigate(R.id.action_home_to_superFlashSaleFragment)
+            findNavController().navigate(R.id.action_nestedFragment_to_superFlashSaleFragment)
         }
     }
 

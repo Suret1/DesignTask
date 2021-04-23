@@ -43,4 +43,6 @@
     <string name="man_pants">Man Pants</string>
     <string name="man_fashion">Man Fashion</string>
     <string name="woman_fashion">Woman Fashion</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

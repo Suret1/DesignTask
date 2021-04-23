@@ -34,8 +34,7 @@ class SplashScreen : Fragment(R.layout.fragment_splash_screen) {
             )
             val isLogged = sharedPreferences?.getBoolean(Constants.loginBoolean, false)
             if (isLogged == true) {
-                view.findNavController().navigate(R.id.action_splash_to_nested_nav_graph)
-                requireActivity().finish()
+                view.findNavController().navigate(R.id.action_splashScreen_to_nestedFragment)
             } else {
                 view.findNavController().navigate(R.id.action_splashScreen_to_loginFragment)
             }
