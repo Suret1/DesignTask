@@ -6,6 +6,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.suret.taskdesign.ChangeStatusBarColor
 import com.suret.taskdesign.R
@@ -48,7 +49,7 @@ class NestedFragment : Fragment(R.layout.fragment_nested) {
 
         main_toolbar.setOnMenuItemClickListener { item ->
             when (item?.itemId) {
-                R.id.favorite -> navController.navigate(R.id.favorite)
+                R.id.favorite -> Navigation.findNavController(requireActivity(),R.id.fragment_container).navigate(R.id.action_nestedFragment_to_favoriteFragment)
                 R.id.notification -> Log.d("dumb", "dumb")
             }
             false

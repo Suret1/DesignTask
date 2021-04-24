@@ -11,6 +11,8 @@
         android:label="fragment_test"
         tools:layout="@layout/fragment_home">
 
+
+
     </fragment>
     <fragment
         android:id="@+id/explore"

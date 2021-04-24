@@ -5,6 +5,24 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/splashScreen">
 
+    <action
+        android:id="@+id/action_nestedFragment_to_categoryFragment"
+        app:destination="@id/categoryFragment"
+        app:enterAnim="@anim/enter_from_right"
+        app:popEnterAnim="@anim/enter_from_left"
+        app:popExitAnim="@anim/exit_to_right" />
+    <action
+        android:id="@+id/action_nestedFragment_to_superFlashSaleFragment"
+        app:destination="@id/superFlashSaleFragment"
+        app:enterAnim="@anim/enter_from_right"
+        app:popEnterAnim="@anim/enter_from_left"
+        app:popExitAnim="@anim/exit_to_right" />
+    <action
+        android:id="@+id/action_nestedFragment_to_favoriteFragment"
+        app:destination="@id/favoriteFragment"
+        app:enterAnim="@anim/enter_from_right"
+        app:popEnterAnim="@anim/enter_from_left"
+        app:popExitAnim="@anim/exit_to_right" />
     <fragment
         android:id="@+id/splashScreen"
         android:name="com.suret.taskdesign.ui.splashscreen.SplashScreen"
@@ -75,12 +93,6 @@
         android:label="fragment_nested"
         tools:layout="@layout/fragment_home">
 
-        <action
-            android:id="@+id/action_nestedFragment_to_categoryFragment"
-            app:destination="@id/categoryFragment" />
-        <action
-            android:id="@+id/action_nestedFragment_to_superFlashSaleFragment"
-            app:destination="@id/superFlashSaleFragment" />
     </fragment>
 
     <fragment
@@ -88,29 +100,20 @@
         android:name="com.suret.taskdesign.ui.category.CategoryFragment"
         android:label="fragment_category"
         tools:layout="@layout/fragment_nested">
-        <action
-            android:id="@+id/action_categoryFragment_to_homeFragment"
-            app:destination="@id/home"
-            app:launchSingleTop="true"
-            app:popUpTo="@id/nav_graph"
-            app:popUpToInclusive="true" />
+
     </fragment>
     <fragment
         android:id="@+id/superFlashSaleFragment"
         android:name="com.suret.taskdesign.ui.sale.SuperFlashSaleFragment"
         android:label="fragment_super_flash_sale"
         tools:layout="@layout/fragment_super_flash_sale">
-        <action
-            android:id="@+id/action_superFlashSaleFragment_to_home"
-            app:destination="@id/home"
-            app:enterAnim="@anim/enter_from_left"
-            app:exitAnim="@anim/exit_to_left"
-            app:launchSingleTop="true"
-            app:popEnterAnim="@anim/enter_from_left"
-            app:popExitAnim="@anim/exit_to_left"
-            app:popUpTo="@id/nav_graph"
-            app:popUpToInclusive="true" />
+
     </fragment>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.suret.taskdesign.ui.favorite.FavoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" />
 
 
 </navigation>

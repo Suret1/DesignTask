@@ -5,7 +5,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
+import androidx.navigation.Navigation
 import androidx.viewpager.widget.ViewPager
 import com.suret.taskdesign.R
 import com.suret.taskdesign.adapter.CategoryRecyclerAdapter
@@ -30,8 +30,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
 
         salesList = SalesModelListMaker.salesListMaker()
 
@@ -60,15 +58,18 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         grid_recycler.adapter = gridAdapter
 
         more_category_TV.setOnClickListener {
-            findNavController().navigate(R.id.action_nestedFragment_to_categoryFragment)
+            Navigation.findNavController(requireActivity(), R.id.fragment_container)
+                .navigate(R.id.action_nestedFragment_to_categoryFragment)
         }
 
         see_more_tv.setOnClickListener {
-            findNavController().navigate(R.id.action_nestedFragment_to_superFlashSaleFragment)
+            Navigation.findNavController(requireActivity(), R.id.fragment_container)
+                .navigate(R.id.action_nestedFragment_to_superFlashSaleFragment)
         }
 
         mega_see_more_TV.setOnClickListener {
-            findNavController().navigate(R.id.action_nestedFragment_to_superFlashSaleFragment)
+            Navigation.findNavController(requireActivity(), R.id.fragment_container)
+                .navigate(R.id.action_nestedFragment_to_superFlashSaleFragment)
         }
     }
 
