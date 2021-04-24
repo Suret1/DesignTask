@@ -10,8 +10,7 @@ import com.suret.taskdesign.R
 import com.suret.taskdesign.model.CategoryModel
 
 class CategoryRecyclerAdapter(
-    private val categoryList: MutableList<CategoryModel>,
-) :
+    private val categoryList: MutableList<CategoryModel>) :
     RecyclerView.Adapter<CategoryRecyclerAdapter.MyViewHolder>() {
 
 

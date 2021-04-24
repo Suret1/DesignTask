@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="20dp"
+    android:orientation="horizontal"
+    tools:context=".ui.notification.offer.OfferFragment">
+
+
+    <LinearLayout
+        android:id="@+id/linerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:id="@+id/offer_icon_IW"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            tools:srcCompat="@drawable/offer" />
+
+        <TextView
+            android:id="@+id/offer_title_TV"
+            style="@style/Style.TextViewBold"
+            android:layout_marginStart="15dp"
+            tools:text="The Best Title" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linerLayout">
+
+        <TextView
+            android:id="@+id/offer_desc_TV"
+            style="@style/Style.TextViewNormal"
+            android:textColor="@color/text_grey"
+            tools:text="Culpa cillum consectetur labore nulla nulla magna irure. Id veniam culpa officia aute dolor amet deserunt ex proident commodo" />
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:id="@+id/offer_date_TV"
+            style="@style/Style.TextViewNormal"
+            android:textColor="@color/text_blue"
+            android:textSize="10sp"
+            tools:text="April 30, 2014 1:01 PM" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

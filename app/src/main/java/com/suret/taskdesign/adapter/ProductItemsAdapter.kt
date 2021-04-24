@@ -30,6 +30,6 @@ class ProductItemsAdapter(private val productList: MutableList<SuperFlashSaleMod
         holder.textTitle.text = productList[position].saleTitle
         holder.textPrice.text = productList[position].salePrice
     }
-    override fun getItemCount(): Int = 4
+    override fun getItemCount(): Int = productList.size
 }
 

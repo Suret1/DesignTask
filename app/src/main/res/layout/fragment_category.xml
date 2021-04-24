@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="start"
     android:orientation="vertical"
-    tools:context=".ui.category.CategoryFragment">
+    tools:context=".ui.home.category.CategoryFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/barLayout"

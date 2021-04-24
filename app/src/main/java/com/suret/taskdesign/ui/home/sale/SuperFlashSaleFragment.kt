@@ -1,4 +1,4 @@
-package com.suret.taskdesign.ui.sale
+package com.suret.taskdesign.ui.home.sale
 
 import android.os.Bundle
 import android.view.View

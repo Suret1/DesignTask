@@ -2,7 +2,6 @@ package com.suret.taskdesign.ui.favorite
 
 import android.os.Bundle
 import android.view.View
-import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import com.suret.taskdesign.R
 import com.suret.taskdesign.adapter.ProductItemsAdapter
@@ -28,7 +27,7 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite) {
 
 
         favorite_toolbar.setNavigationOnClickListener {
-            requireActivity().onBackPressed()
+            activity?.onBackPressed()
         }
     }
 

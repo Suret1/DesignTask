@@ -23,6 +23,19 @@
         app:enterAnim="@anim/enter_from_right"
         app:popEnterAnim="@anim/enter_from_left"
         app:popExitAnim="@anim/exit_to_right" />
+
+    <action
+        android:id="@+id/action_nestedFragment_to_notificationFragment"
+        app:destination="@+id/notificationFragment"
+        app:enterAnim="@anim/enter_from_right"
+        app:popEnterAnim="@anim/enter_from_left"
+        app:popExitAnim="@anim/exit_to_right" />
+    <action
+        android:id="@+id/action_notification_to_offerFragment"
+        app:destination="@+id/offerFragment"
+        app:enterAnim="@anim/enter_from_right"
+        app:popEnterAnim="@anim/enter_from_left"
+        app:popExitAnim="@anim/exit_to_right" />
     <fragment
         android:id="@+id/splashScreen"
         android:name="com.suret.taskdesign.ui.splashscreen.SplashScreen"
@@ -97,14 +110,14 @@
 
     <fragment
         android:id="@+id/categoryFragment"
-        android:name="com.suret.taskdesign.ui.category.CategoryFragment"
+        android:name="com.suret.taskdesign.ui.home.category.CategoryFragment"
         android:label="fragment_category"
         tools:layout="@layout/fragment_nested">
 
     </fragment>
     <fragment
         android:id="@+id/superFlashSaleFragment"
-        android:name="com.suret.taskdesign.ui.sale.SuperFlashSaleFragment"
+        android:name="com.suret.taskdesign.ui.home.sale.SuperFlashSaleFragment"
         android:label="fragment_super_flash_sale"
         tools:layout="@layout/fragment_super_flash_sale">
 
@@ -114,6 +127,16 @@
         android:name="com.suret.taskdesign.ui.favorite.FavoriteFragment"
         android:label="fragment_favorite"
         tools:layout="@layout/fragment_favorite" />
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.suret.taskdesign.ui.notification.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification" />
+    <fragment
+        android:id="@+id/offerFragment"
+        android:name="com.suret.taskdesign.ui.notification.offer.OfferFragment"
+        android:label="notification_offer_layout"
+        tools:layout="@layout/notification_offer_layout" />
 
 
 </navigation>

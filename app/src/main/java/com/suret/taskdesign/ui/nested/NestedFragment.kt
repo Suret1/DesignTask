@@ -1,12 +1,10 @@
 package com.suret.taskdesign.ui.nested
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.suret.taskdesign.ChangeStatusBarColor
 import com.suret.taskdesign.R
@@ -42,15 +40,21 @@ class NestedFragment : Fragment(R.layout.fragment_nested) {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.categoryFragment, R.id.superFlashSaleFragment, R.id.favorite -> hideBottomNavAndActionBar()
+                R.id.categoryFragment, R.id.superFlashSaleFragment, R.id.favorite, R.id.favorite -> hideBottomNavAndActionBar()
                 else -> showBottomNavAndActionBar()
             }
         }
 
         main_toolbar.setOnMenuItemClickListener { item ->
             when (item?.itemId) {
-                R.id.favorite -> Navigation.findNavController(requireActivity(),R.id.fragment_container).navigate(R.id.action_nestedFragment_to_favoriteFragment)
-                R.id.notification -> Log.d("dumb", "dumb")
+                R.id.favorite -> Navigation.findNavController(
+                    requireActivity(),
+                    R.id.fragment_container
+                ).navigate(R.id.action_nestedFragment_to_favoriteFragment)
+                R.id.notification -> Navigation.findNavController(
+                    requireActivity(),
+                    R.id.fragment_container
+                ).navigate(R.id.action_nestedFragment_to_notificationFragment)
             }
             false
         }

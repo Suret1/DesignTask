@@ -1,4 +1,4 @@
-package com.suret.taskdesign.ui.category
+package com.suret.taskdesign.ui.home.category
 
 import android.os.Bundle
 import android.view.View

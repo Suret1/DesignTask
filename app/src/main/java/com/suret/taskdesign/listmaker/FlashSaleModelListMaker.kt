@@ -44,6 +44,7 @@ class FlashSaleModelListMaker {
                 )
             )
 
+
             return flashSaleList
 
         }
