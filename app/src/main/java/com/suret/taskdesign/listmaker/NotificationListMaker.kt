@@ -12,7 +12,7 @@ class NotificationListMaker {
                 NotificationModel(
                     R.drawable.offer,
                     R.string.offer,
-                    "2"
+                    "3"
                 )
             )
             notificationList.add(

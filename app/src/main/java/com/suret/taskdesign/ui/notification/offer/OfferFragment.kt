@@ -18,11 +18,11 @@ class OfferFragment : Fragment(R.layout.fragment_offer) {
 
         val offerAdapter = OfferNotificationAdapter(offerList)
 
-        offer_notification_recycler.adapter = offerAdapter
+        feed_recycler.adapter = offerAdapter
 
-        offer_notification_toolbar.setNavigationIcon(R.drawable.back_btn)
+        feed_toolbar.setNavigationIcon(R.drawable.back_btn)
 
-        offer_notification_toolbar.setNavigationOnClickListener {
+        feed_toolbar.setNavigationOnClickListener {
             activity?.onBackPressed()
         }
 

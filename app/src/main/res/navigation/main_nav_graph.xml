@@ -36,6 +36,12 @@
         app:enterAnim="@anim/enter_from_right"
         app:popEnterAnim="@anim/enter_from_left"
         app:popExitAnim="@anim/exit_to_right" />
+    <action
+        android:id="@+id/action_notification_to_feedFragment"
+        app:destination="@+id/feedFragment"
+        app:enterAnim="@anim/enter_from_right"
+        app:popEnterAnim="@anim/enter_from_left"
+        app:popExitAnim="@anim/exit_to_right" />
     <fragment
         android:id="@+id/splashScreen"
         android:name="com.suret.taskdesign.ui.splashscreen.SplashScreen"
@@ -137,6 +143,10 @@
         android:name="com.suret.taskdesign.ui.notification.offer.OfferFragment"
         android:label="notification_offer_layout"
         tools:layout="@layout/notification_offer_layout" />
+    <fragment
+        android:id="@+id/feedFragment"
+        android:name="com.suret.taskdesign.ui.notification.feed.FeedFragment"
+        android:label="FeedFragment" />
 
 
 </navigation>

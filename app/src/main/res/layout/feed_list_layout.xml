@@ -3,17 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="horizontal"
     android:paddingBottom="20dp"
     tools:context=".ui.notification.offer.OfferFragment">
 
+
     <ImageView
-        android:id="@+id/offer_icon_IW"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/feed_icon_IW"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_marginStart="10dp"
-        android:layout_alignParentStart="true"
         android:layout_marginTop="5dp"
-        tools:srcCompat="@drawable/offer" />
+        tools:srcCompat="@drawable/feed" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -21,29 +22,30 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="36dp"
+        android:layout_marginStart="72dp"
         android:layout_marginEnd="5dp"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/offer_title_TV"
+            android:id="@+id/feed_title_TV"
             style="@style/Style.TextViewBold"
             tools:text="The Best Title" />
 
+
         <TextView
-            android:id="@+id/offer_desc_TV"
+            android:id="@+id/feed_desc_TV"
             style="@style/Style.TextViewNormal"
             android:textColor="@color/text_grey"
             tools:text="Culpa cillum consectetur labore nulla nulla magna irure. Id veniam culpa officia aute dolor amet deserunt ex proident commodo" />
 
+
         <TextView
-            android:id="@+id/offer_date_TV"
+            android:id="@+id/feed_date_TV"
             style="@style/Style.TextViewNormal"
-            android:layout_marginTop="5dp"
+            android:textAlignment="center"
             android:textColor="@color/text_blue"
             android:textSize="10sp"
             tools:text="April 30, 2014 1:01 PM" />
     </LinearLayout>
-
 
 </RelativeLayout>

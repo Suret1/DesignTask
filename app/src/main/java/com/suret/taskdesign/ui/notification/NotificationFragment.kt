@@ -36,9 +36,10 @@ class NotificationFragment : Fragment(R.layout.fragment_notification),
     }
 
     override fun onItemClick(position: Int) {
+        val navigation = Navigation.findNavController(requireActivity(), R.id.fragment_container)
         when (position) {
-            0 -> Navigation.findNavController(requireActivity(), R.id.fragment_container)
-                .navigate(R.id.action_notification_to_offerFragment)
+            0 -> navigation.navigate(R.id.action_notification_to_offerFragment)
+            1 -> navigation.navigate(R.id.action_notification_to_feedFragment)
             else -> Toast.makeText(context, "Coming soon...", Toast.LENGTH_SHORT).show()
         }
     }
