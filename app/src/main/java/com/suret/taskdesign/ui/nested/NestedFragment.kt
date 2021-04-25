@@ -46,15 +46,11 @@ class NestedFragment : Fragment(R.layout.fragment_nested) {
         }
 
         main_toolbar.setOnMenuItemClickListener { item ->
+            val navigation =
+                Navigation.findNavController(requireActivity(), R.id.fragment_container)
             when (item?.itemId) {
-                R.id.favorite -> Navigation.findNavController(
-                    requireActivity(),
-                    R.id.fragment_container
-                ).navigate(R.id.action_nestedFragment_to_favoriteFragment)
-                R.id.notification -> Navigation.findNavController(
-                    requireActivity(),
-                    R.id.fragment_container
-                ).navigate(R.id.action_nestedFragment_to_notificationFragment)
+                R.id.favorite -> navigation.navigate(R.id.action_nestedFragment_to_favoriteFragment)
+                R.id.notification -> navigation.navigate(R.id.action_nestedFragment_to_notificationFragment)
             }
             false
         }

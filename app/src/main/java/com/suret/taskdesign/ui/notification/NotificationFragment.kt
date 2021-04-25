@@ -2,7 +2,6 @@ package com.suret.taskdesign.ui.notification
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.suret.taskdesign.R
@@ -40,7 +39,7 @@ class NotificationFragment : Fragment(R.layout.fragment_notification),
         when (position) {
             0 -> navigation.navigate(R.id.action_notification_to_offerFragment)
             1 -> navigation.navigate(R.id.action_notification_to_feedFragment)
-            else -> Toast.makeText(context, "Coming soon...", Toast.LENGTH_SHORT).show()
+            2 -> navigation.navigate(R.id.action_notification_to_activityFragment)
         }
     }
 
