@@ -1,28 +1,40 @@
 package com.suret.taskdesign.ui.notification.feed
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.suret.taskdesign.R
 import com.suret.taskdesign.adapter.FeedRecyclerAdapter
-import com.suret.taskdesign.adapter.OfferNotificationAdapter
+import com.suret.taskdesign.databinding.FragmentFeedBinding
 import com.suret.taskdesign.listmaker.FeedListMaker
 import com.suret.taskdesign.model.NotificationOfferModel
-import kotlinx.android.synthetic.main.fragment_feed.*
 
-class FeedFragment : Fragment(R.layout.fragment_feed) {
+class FeedFragment : Fragment() {
+    private lateinit var feedBinding: FragmentFeedBinding
     private var feedList: MutableList<NotificationOfferModel> = arrayListOf()
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        feedBinding = FragmentFeedBinding.inflate(inflater, container, false)
+        return feedBinding.root
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         feedList = FeedListMaker.feedListMaker()
 
         val feedAdapter = FeedRecyclerAdapter(feedList)
 
-        feed_recycler.adapter = feedAdapter
+        feedBinding.feedRecycler.adapter = feedAdapter
 
-        feed_toolbar.setNavigationIcon(R.drawable.back_btn)
+        feedBinding.feedToolbar.setNavigationIcon(R.drawable.back_btn)
 
-        feed_toolbar.setNavigationOnClickListener {
+        feedBinding.feedToolbar.setNavigationOnClickListener {
             activity?.onBackPressed()
         }
 

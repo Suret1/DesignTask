@@ -1,218 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:theme="@style/Style.AppBarLayout"
-    tools:context=".ui.login.LoginFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:theme="@style/Style.AppBarLayout"
+        tools:context=".ui.login.LoginFragment">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="150dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginEnd="150dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/app_icon" />
-
-
-        <TextView
-            android:id="@+id/textView"
-            style="@style/Style.TextViewBold"
-            android:layout_marginTop="16dp"
-            android:text="@string/welcome_to_lafyuu"
-            android:textSize="16sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageView" />
-
-
-        <TextView
-            android:id="@+id/textView2"
-            style="@style/Style.TextViewNormal"
-            android:layout_marginTop="8dp"
-            android:text="@string/sign_in_to_continue"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView" />
-
-        <EditText
-            android:id="@+id/email_edit_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="28dp"
-            android:background="@drawable/selector_edittext"
-            android:drawableStart="@drawable/mail_24"
-            android:drawablePadding="10dp"
-            android:drawableTint="@color/color_tint"
-            android:fontFamily="@font/poppins"
-            android:hint="Your Email"
-            android:inputType="textEmailAddress"
-            android:padding="12dp"
-            android:textColor="@color/text_grey"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView2" />
-
-
-        <EditText
-            android:id="@+id/password_edit_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/selector_edittext"
-            android:drawableStart="@drawable/lock"
-            android:drawablePadding="10dp"
-            android:drawableTint="@color/color_tint"
-            android:fontFamily="@font/poppins"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:padding="12dp"
-            android:textColor="@color/text_grey"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/email_edit_text" />
-
-        <Button
-            android:id="@+id/sign_in_btn"
-            style="@style/Style.CustomButton"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/sign_in"
-            app:backgroundTint="@null"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password_edit_text" />
-
-        <TextView
-            android:id="@+id/wrong_password_TV"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="5dp"
-            android:fontFamily="@font/poppins_bold"
-            android:text="Oops! Your Password Is Not Correct "
-            android:textColor="@color/red"
-            android:textSize="12sp"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sign_in_btn" />
-
-        <View
-            android:id="@+id/line1"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="31dp"
-            android:layout_marginEnd="28dp"
-            android:layout_toStartOf="@+id/or_text_view"
-            android:background="@color/grey"
-            app:layout_constraintEnd_toStartOf="@id/or_text_view"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/wrong_password_TV" />
-
-        <TextView
-            android:id="@+id/or_text_view"
-            style="@style/Style.TextViewBold"
-            android:layout_marginTop="21dp"
-            android:text="@string/or"
-            android:textColor="@color/text_grey"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/line1"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/wrong_password_TV" />
-
-        <View
-            android:id="@+id/line2"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="31dp"
-            android:layout_marginEnd="16dp"
-            android:background="@color/grey"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/or_text_view"
-            app:layout_constraintTop_toBottomOf="@id/wrong_password_TV" />
-
-        <Button
-            android:id="@+id/sign_in_with_google_btn"
-            style="@style/Style.CustomButton"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="@android:color/transparent"
-            android:drawableLeft="@drawable/google_icon"
-            android:text="@string/log_in_google"
-            android:textColor="@color/text_grey"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/or_text_view" />
-
-        <Button
-            android:id="@+id/sign_in_with_fb_btn"
-            style="@style/Style.CustomButton"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="@android:color/transparent"
-            android:drawableLeft="@drawable/fb_icon"
-            android:text="@string/log_in_fb"
-            android:textColor="@color/text_grey"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sign_in_with_google_btn" />
-
-        <TextView
-            android:id="@+id/forgot_password_tv"
-            style="@style/Style.TextViewBold"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/forgot_password"
-            android:textColor="@color/blue"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sign_in_with_fb_btn" />
-
-        <LinearLayout
-
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/forgot_password_tv">
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginEnd="150dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/app_icon" />
 
 
             <TextView
-                android:id="@+id/have_acc_tv"
-                style="@style/Style.TextViewNormal"
-                android:layout_marginTop="10dp"
-                android:text="@string/dont_have_a_account"
-                android:textColor="@color/text_grey" />
-
-            <TextView
-                android:id="@+id/register_tv"
+                android:id="@+id/textView"
                 style="@style/Style.TextViewBold"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="10dp"
-                android:text="@string/register"
-                android:textColor="@color/blue" />
-        </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_marginTop="16dp"
+                android:text="@string/welcome_to_lafyuu"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageView" />
 
-</ScrollView>
+
+            <TextView
+                android:id="@+id/textView2"
+                style="@style/Style.TextViewNormal"
+                android:layout_marginTop="8dp"
+                android:text="@string/sign_in_to_continue"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView" />
+
+            <EditText
+                android:id="@+id/email_edit_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/selector_edittext"
+                android:drawableStart="@drawable/mail_24"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/color_tint"
+                android:fontFamily="@font/poppins"
+                android:hint="Your Email"
+                android:inputType="textEmailAddress"
+                android:padding="12dp"
+                android:textColor="@color/text_grey"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView2" />
+
+
+            <EditText
+                android:id="@+id/password_edit_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/selector_edittext"
+                android:drawableStart="@drawable/lock"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/color_tint"
+                android:fontFamily="@font/poppins"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:padding="12dp"
+                android:textColor="@color/text_grey"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/email_edit_text" />
+
+            <Button
+                android:id="@+id/sign_in_btn"
+                style="@style/Style.CustomButton"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/sign_in"
+                app:backgroundTint="@null"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/password_edit_text" />
+
+            <TextView
+                android:id="@+id/wrong_password_TV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Oops! Your Password Is Not Correct "
+                android:textColor="@color/red"
+                android:textSize="12sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sign_in_btn" />
+
+            <View
+                android:id="@+id/line1"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="31dp"
+                android:layout_marginEnd="28dp"
+                android:layout_toStartOf="@+id/or_text_view"
+                android:background="@color/grey"
+                app:layout_constraintEnd_toStartOf="@id/or_text_view"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/wrong_password_TV" />
+
+            <TextView
+                android:id="@+id/or_text_view"
+                style="@style/Style.TextViewBold"
+                android:layout_marginTop="21dp"
+                android:text="@string/or"
+                android:textColor="@color/text_grey"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/line1"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/wrong_password_TV" />
+
+            <View
+                android:id="@+id/line2"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="31dp"
+                android:layout_marginEnd="16dp"
+                android:background="@color/grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/or_text_view"
+                app:layout_constraintTop_toBottomOf="@id/wrong_password_TV" />
+
+            <Button
+                android:id="@+id/sign_in_with_google_btn"
+                style="@style/Style.CustomButton"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@android:color/transparent"
+                android:drawableLeft="@drawable/google_icon"
+                android:text="@string/log_in_google"
+                android:textColor="@color/text_grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/or_text_view" />
+
+            <Button
+                android:id="@+id/sign_in_with_fb_btn"
+                style="@style/Style.CustomButton"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@android:color/transparent"
+                android:drawableLeft="@drawable/fb_icon"
+                android:text="@string/log_in_fb"
+                android:textColor="@color/text_grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sign_in_with_google_btn" />
+
+            <TextView
+                android:id="@+id/forgot_password_tv"
+                style="@style/Style.TextViewBold"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/forgot_password"
+                android:textColor="@color/blue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sign_in_with_fb_btn" />
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/forgot_password_tv">
+
+
+                <TextView
+                    android:id="@+id/have_acc_tv"
+                    style="@style/Style.TextViewNormal"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/dont_have_a_account"
+                    android:textColor="@color/text_grey" />
+
+                <TextView
+                    android:id="@+id/register_tv"
+                    style="@style/Style.TextViewBold"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/register"
+                    android:textColor="@color/blue" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

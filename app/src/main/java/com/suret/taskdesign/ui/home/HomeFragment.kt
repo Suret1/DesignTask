@@ -3,7 +3,9 @@ package com.suret.taskdesign.ui.home
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.viewpager.widget.ViewPager
@@ -12,21 +14,31 @@ import com.suret.taskdesign.adapter.CategoryRecyclerAdapter
 import com.suret.taskdesign.adapter.FlashSaleRecyclerAdapter
 import com.suret.taskdesign.adapter.ItemPagerAdapter
 import com.suret.taskdesign.adapter.ProductItemsAdapter
+import com.suret.taskdesign.databinding.FragmentHomeBinding
 import com.suret.taskdesign.listmaker.CategoryModelListMaker
 import com.suret.taskdesign.listmaker.FlashSaleModelListMaker
 import com.suret.taskdesign.listmaker.SalesModelListMaker
 import com.suret.taskdesign.model.CategoryModel
 import com.suret.taskdesign.model.SalesModel
 import com.suret.taskdesign.model.SuperFlashSaleModel
-import kotlinx.android.synthetic.main.fragment_home.*
 
 
-class HomeFragment : Fragment(R.layout.fragment_home) {
+class HomeFragment : Fragment() {
+    private lateinit var homeBinding: FragmentHomeBinding
     private var salesList: MutableList<SalesModel> = arrayListOf()
     private var categoryList: MutableList<CategoryModel> = arrayListOf()
     private var flashSaleList: MutableList<SuperFlashSaleModel> = arrayListOf()
     private var runnable: Runnable = Runnable { }
     private var handler: Handler = Handler(Looper.getMainLooper())
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        homeBinding = FragmentHomeBinding.inflate(inflater, container, false)
+        return homeBinding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -43,33 +55,38 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val flashSaleAdapter = FlashSaleRecyclerAdapter(flashSaleList)
         val gridAdapter = ProductItemsAdapter(flashSaleList)
 
-        viewPager.adapter = itemPagerAdapter
 
-        indicator.setupWithViewPager(viewPager)
+        homeBinding.apply {
 
-        sliderTimer(viewPager)
+            viewPager.adapter = itemPagerAdapter
 
-        category_recyclerView.adapter = categoryAdapter
+            indicator.setupWithViewPager(viewPager)
 
-        flash_sale_recycler.adapter = flashSaleAdapter
+            sliderTimer(viewPager)
 
-        mega_sale_recycler.adapter = flashSaleAdapter
 
-        grid_recycler.adapter = gridAdapter
+            categoryRecyclerView.adapter = categoryAdapter
 
-        more_category_TV.setOnClickListener {
-            Navigation.findNavController(requireActivity(), R.id.fragment_container)
-                .navigate(R.id.action_nestedFragment_to_categoryFragment)
-        }
+            flashSaleRecycler.adapter = flashSaleAdapter
 
-        see_more_tv.setOnClickListener {
-            Navigation.findNavController(requireActivity(), R.id.fragment_container)
-                .navigate(R.id.action_nestedFragment_to_superFlashSaleFragment)
-        }
+            megaSaleRecycler.adapter = flashSaleAdapter
 
-        mega_see_more_TV.setOnClickListener {
-            Navigation.findNavController(requireActivity(), R.id.fragment_container)
-                .navigate(R.id.action_nestedFragment_to_superFlashSaleFragment)
+            gridRecycler.adapter = gridAdapter
+
+            moreCategoryTV.setOnClickListener {
+                Navigation.findNavController(requireActivity(), R.id.fragment_container)
+                    .navigate(R.id.action_nestedFragment_to_categoryFragment)
+            }
+
+            seeMoreTv.setOnClickListener {
+                Navigation.findNavController(requireActivity(), R.id.fragment_container)
+                    .navigate(R.id.action_nestedFragment_to_superFlashSaleFragment)
+            }
+
+            megaSeeMoreTV.setOnClickListener {
+                Navigation.findNavController(requireActivity(), R.id.fragment_container)
+                    .navigate(R.id.action_nestedFragment_to_superFlashSaleFragment)
+            }
         }
     }
 

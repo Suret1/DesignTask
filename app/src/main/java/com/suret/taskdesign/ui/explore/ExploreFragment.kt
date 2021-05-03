@@ -1,21 +1,28 @@
 package com.suret.taskdesign.ui.explore
 
 import android.os.Bundle
-import android.util.Log
-import android.view.MenuItem
+import android.view.LayoutInflater
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.suret.taskdesign.R
 import com.suret.taskdesign.adapter.CategoryRecyclerAdapter
+import com.suret.taskdesign.databinding.FragmentExploreBinding
 import com.suret.taskdesign.listmaker.CategoryModelListMaker
 import com.suret.taskdesign.model.CategoryModel
-import kotlinx.android.synthetic.main.fragment_explore.*
 
-class ExploreFragment : Fragment(R.layout.fragment_explore) {
+class ExploreFragment : Fragment() {
+    private lateinit var exploreBinding: FragmentExploreBinding
     private var categoryForMan: MutableList<CategoryModel> = arrayListOf()
     private var categoryForWoman: MutableList<CategoryModel> = arrayListOf()
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        exploreBinding = FragmentExploreBinding.inflate(inflater, container, false)
+        return exploreBinding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -24,12 +31,16 @@ class ExploreFragment : Fragment(R.layout.fragment_explore) {
         categoryForWoman = CategoryModelListMaker.categoryListForWoman()
 
         val manAdapter = CategoryRecyclerAdapter(categoryForMan)
-        man_fashion_recycler.adapter = manAdapter
         val womanAdapter = CategoryRecyclerAdapter(categoryForWoman)
-        woman_fashion_recycler.adapter = womanAdapter
+
+        exploreBinding.apply {
+
+            manFashionRecycler.adapter = manAdapter
+            womanFashionRecycler.adapter = womanAdapter
+        }
+
 
     }
-
 
 
 }

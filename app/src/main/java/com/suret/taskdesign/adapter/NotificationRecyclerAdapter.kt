@@ -30,23 +30,19 @@ class NotificationRecyclerAdapter(
 
     override fun getItemCount(): Int = notificationList.size
 
-    inner class MyNotificationHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
-        View.OnClickListener {
+    inner class MyNotificationHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageIcon: ImageView = itemView.findViewById(R.id.icon_notification_item)
         val title: TextView = itemView.findViewById(R.id.title_notification_item)
         val count: TextView = itemView.findViewById(R.id.count_notification_item)
 
-
         init {
-            itemView.setOnClickListener(this)
+            itemView.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) listener.onItemClick(position)
+            }
         }
-
-        override fun onClick(v: View?) {
-            val position = adapterPosition
-            if (position != RecyclerView.NO_POSITION) listener.onItemClick(position)
-        }
-
     }
+
     interface OnItemClickListener {
         fun onItemClick(position: Int)
     }

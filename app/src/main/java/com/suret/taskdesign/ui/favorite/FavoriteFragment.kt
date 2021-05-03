@@ -1,17 +1,30 @@
 package com.suret.taskdesign.ui.favorite
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.suret.taskdesign.R
 import com.suret.taskdesign.adapter.ProductItemsAdapter
+import com.suret.taskdesign.databinding.FragmentFavoriteBinding
 import com.suret.taskdesign.listmaker.FlashSaleModelListMaker
 import com.suret.taskdesign.model.SuperFlashSaleModel
-import kotlinx.android.synthetic.main.fragment_favorite.*
 
 
-class FavoriteFragment : Fragment(R.layout.fragment_favorite) {
+class FavoriteFragment : Fragment() {
+    private lateinit var favoriteBinding: FragmentFavoriteBinding
     private var favoriteList: MutableList<SuperFlashSaleModel> = arrayListOf()
+
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        favoriteBinding = FragmentFavoriteBinding.inflate(inflater, container, false)
+        return favoriteBinding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -20,15 +33,18 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite) {
 
         val favoriteAdapter = ProductItemsAdapter(favoriteList)
 
-        favorite_recycler.adapter = favoriteAdapter
 
+        favoriteBinding.apply {
+            favoriteRecycler.adapter = favoriteAdapter
 
-        favorite_toolbar.setNavigationIcon(R.drawable.back_btn)
+            favoriteToolbar.setNavigationIcon(R.drawable.back_btn)
 
-
-        favorite_toolbar.setNavigationOnClickListener {
-            activity?.onBackPressed()
+            favoriteToolbar.setNavigationOnClickListener {
+                activity?.onBackPressed()
+            }
         }
+
+
     }
 
 

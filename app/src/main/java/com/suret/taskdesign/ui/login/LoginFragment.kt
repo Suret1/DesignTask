@@ -3,16 +3,29 @@ package com.suret.taskdesign.ui.login
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.suret.taskdesign.ChangeStatusBarColor
 import com.suret.taskdesign.R
 import com.suret.taskdesign.constants.Constants
-import kotlinx.android.synthetic.main.fragment_login.*
+import com.suret.taskdesign.databinding.FragmentLoginBinding
 
 
-class LoginFragment : Fragment(R.layout.fragment_login) {
+class LoginFragment : Fragment() {
+
+    private lateinit var loginBinding: FragmentLoginBinding
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        loginBinding = FragmentLoginBinding.inflate(inflater, container, false)
+        return loginBinding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -24,11 +37,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             R.color.white
         )
 
-        register_tv.setOnClickListener {
+        loginBinding.registerTv.setOnClickListener {
             view.findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
 
-        sign_in_btn.setOnClickListener {
+        loginBinding.signInBtn.setOnClickListener {
 
             val sharedPreferences: SharedPreferences? = activity?.getSharedPreferences(
                 Constants.userData,
