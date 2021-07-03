@@ -32,6 +32,7 @@
     <string name="man_shirt">Man Shirt</string>
     <string name="recommended_product">Recommended\nProduct</string>
     <string name="recommended_best_for_you">We recommend the best for you</string>
+    <string name="search_hint">Search Product</string>
     <string name="dress">Dress</string>
     <string name="man_bag">Man Work\nEquipment</string>
     <string name="woman_bag">Woman Bag</string>
@@ -46,7 +47,6 @@
     <string name="man_pants">Man Pants</string>
     <string name="man_fashion">Man Fashion</string>
     <string name="woman_fashion">Woman Fashion</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>

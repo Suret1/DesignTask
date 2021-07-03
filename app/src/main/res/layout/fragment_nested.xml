@@ -30,20 +30,20 @@
                 app:layout_scrollFlags="scroll|enterAlways|snap"
                 app:menu="@menu/app_bar_menu">
 
-                <EditText
-                    android:id="@+id/search_ET"
-                    android:layout_width="match_parent"
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/searchView"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/selector_edittext"
-                    android:drawableLeft="@drawable/search"
-                    android:drawablePadding="10dp"
-                    android:drawableTint="@color/color_tint"
                     android:fontFamily="@font/poppins"
-                    android:hint="Search Product"
                     android:maxLines="1"
+                    app:queryBackground="@null"
                     android:padding="12dp"
                     android:textColor="@color/text_grey"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:searchHintIcon="@color/blue"
+                    android:background="@drawable/selector_edittext"
+                    app:iconifiedByDefault="false"
+                    app:queryHint="@string/search_hint" />
 
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
