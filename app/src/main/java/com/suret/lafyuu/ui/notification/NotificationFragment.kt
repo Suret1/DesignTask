@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.suret.lafyuu.R
-import com.suret.lafyuu.adapter.NotificationRecyclerAdapter
+import com.suret.lafyuu.ui.adapter.NotificationRecyclerAdapter
 import com.suret.lafyuu.databinding.FragmentNotificationBinding
 import com.suret.lafyuu.listmaker.NotificationListMaker
 import com.suret.lafyuu.model.NotificationModel

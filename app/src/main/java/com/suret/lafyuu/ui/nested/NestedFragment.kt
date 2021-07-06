@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.ui.setupWithNavController
 import com.suret.lafyuu.ChangeStatusBarColor
 import com.suret.lafyuu.R
 import com.suret.lafyuu.databinding.FragmentNestedBinding
@@ -60,16 +61,19 @@ class NestedFragment : Fragment() {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.categoryFragment, R.id.superFlashSaleFragment, R.id.favorite, R.id.favorite -> hideBottomNavAndActionBar()
+                R.id.categoryFragment, R.id.superFlashSaleFragment, R.id.favorite -> hideBottomNavAndActionBar()
+                R.id.account, R.id.offer -> hideActionBar()
                 else -> showBottomNavAndActionBar()
             }
         }
-
-
     }
 
     private fun hideBottomNavAndActionBar() {
         nestedBinding.bottomNav.visibility = View.GONE
+        nestedBinding.mainToolbar.visibility = View.GONE
+    }
+
+    private fun hideActionBar() {
         nestedBinding.mainToolbar.visibility = View.GONE
     }
 

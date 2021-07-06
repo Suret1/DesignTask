@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.suret.lafyuu.R
-import com.suret.lafyuu.adapter.ItemPagerAdapter
-import com.suret.lafyuu.adapter.ProductItemsAdapter
+import com.suret.lafyuu.ui.adapter.ItemPagerAdapter
+import com.suret.lafyuu.ui.adapter.ProductItemsAdapter
 import com.suret.lafyuu.databinding.FragmentSuperFlashSaleBinding
 import com.suret.lafyuu.listmaker.FlashSaleModelListMaker
 import com.suret.lafyuu.listmaker.SalesModelListMaker

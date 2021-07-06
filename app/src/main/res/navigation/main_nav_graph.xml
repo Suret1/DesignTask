@@ -87,7 +87,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.suret.lafyuu.ui.login.LoginFragment"
+        android:name="com.suret.lafyuu.ui.auth.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login">
         <action
@@ -113,7 +113,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.suret.lafyuu.ui.register.RegisterFragment"
+        android:name="com.suret.lafyuu.ui.auth.register.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register">
         <action

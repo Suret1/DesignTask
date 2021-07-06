@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.suret.lafyuu.adapter.CategoryRecyclerAdapter
+import com.suret.lafyuu.ui.adapter.CategoryRecyclerAdapter
 import com.suret.lafyuu.databinding.FragmentExploreBinding
 import com.suret.lafyuu.listmaker.CategoryModelListMaker
 import com.suret.lafyuu.model.CategoryModel

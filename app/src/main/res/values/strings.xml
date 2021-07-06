@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TaskDesign</string>
+    <string name="app_name">Lafyuu</string>
     <string name="welcome_to_lafyuu">Welcome to Lafyuu</string>
     <string name="sign_in_to_continue">Sign in to continue</string>
     <string name="or">OR</string>
@@ -47,6 +47,16 @@
     <string name="man_pants">Man Pants</string>
     <string name="man_fashion">Man Fashion</string>
     <string name="woman_fashion">Woman Fashion</string>
+    <string name="hint_email">Your Email</string>
+    <string name="password_hint">Password</string>
+    <string name="full_name_hint">Full Name</string>
+    <string name="profile">Profile</string>
+    <string name="gender">Gender</string>
+    <string name="email">Email</string>
+    <string name="super_mega_sale_90">90% Off Super Mega \nSale</string>
+    <string name="special_birthday_lafyuu">Special birthday Lafyuu</string>
+    <string name="super_flash_sale_50_off">Super Flash Sale \n50% Off</string>
+    <string name="use_megsl_cupon_for_get_90_off">Use “MEGSL” Cupon For \nGet 90 % Off</string>
 
 
 </resources>

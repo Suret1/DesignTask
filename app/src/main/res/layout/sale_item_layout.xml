@@ -6,7 +6,7 @@
     android:layout_height="220dp">
 
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="15dp"
@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/sales_imageView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -26,7 +26,7 @@
                 tools:src="@drawable/app_icon" />
 
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/sales_textView"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/hour_cardView"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -55,19 +55,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/sales_textView">
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/hour_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="08"
-                    android:textColor="@color/text_blue" />
+                    android:textColor="@color/text_blue"
+                    tools:text="08" />
 
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/dot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
                 app:layout_constraintStart_toEndOf="@id/hour_cardView"
                 app:layout_constraintTop_toTopOf="@id/hour_cardView" />
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/minute_cardView"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -92,19 +92,17 @@
                 app:layout_constraintStart_toEndOf="@id/dot"
                 app:layout_constraintTop_toBottomOf="@id/sales_textView">
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/minute_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="36"
-                    android:textColor="@color/text_blue" />
+                    android:textColor="@color/text_blue"
+                    tools:text="36" />
+            </com.google.android.material.card.MaterialCardView>
 
-
-            </androidx.cardview.widget.CardView>
-
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/dot2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -115,7 +113,7 @@
                 app:layout_constraintTop_toTopOf="@id/hour_cardView" />
 
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/second_cardView"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -130,22 +128,18 @@
                 app:layout_constraintStart_toEndOf="@id/dot2"
                 app:layout_constraintTop_toBottomOf="@id/sales_textView">
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/second_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="55"
-                    android:textColor="@color/text_blue" />
-
-
-            </androidx.cardview.widget.CardView>
+                    android:textColor="@color/text_blue"
+                    tools:text="55" />
+            </com.google.android.material.card.MaterialCardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-    </androidx.cardview.widget.CardView>
-
+    </com.google.android.material.card.MaterialCardView>
 
 </RelativeLayout>

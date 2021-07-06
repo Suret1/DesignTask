@@ -38,7 +38,7 @@ class SplashScreen : Fragment(R.layout.fragment_splash_screen) {
                 view.findNavController().navigate(R.id.action_splashScreen_to_loginFragment)
             }
         }
-        Handler(Looper.getMainLooper()).postDelayed(r, 2000)
+        Handler(Looper.getMainLooper()).postDelayed(r, 1)
 
     }
 

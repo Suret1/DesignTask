@@ -10,10 +10,10 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.viewpager.widget.ViewPager
 import com.suret.lafyuu.R
-import com.suret.lafyuu.adapter.CategoryRecyclerAdapter
-import com.suret.lafyuu.adapter.FlashSaleRecyclerAdapter
-import com.suret.lafyuu.adapter.ItemPagerAdapter
-import com.suret.lafyuu.adapter.ProductItemsAdapter
+import com.suret.lafyuu.ui.adapter.CategoryRecyclerAdapter
+import com.suret.lafyuu.ui.adapter.FlashSaleRecyclerAdapter
+import com.suret.lafyuu.ui.adapter.ItemPagerAdapter
+import com.suret.lafyuu.ui.adapter.ProductItemsAdapter
 import com.suret.lafyuu.databinding.FragmentHomeBinding
 import com.suret.lafyuu.listmaker.CategoryModelListMaker
 import com.suret.lafyuu.listmaker.FlashSaleModelListMaker
