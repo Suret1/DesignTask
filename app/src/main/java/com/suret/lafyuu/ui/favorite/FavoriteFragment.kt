@@ -9,7 +9,7 @@ import com.suret.lafyuu.R
 import com.suret.lafyuu.ui.adapter.ProductItemsAdapter
 import com.suret.lafyuu.databinding.FragmentFavoriteBinding
 import com.suret.lafyuu.listmaker.FlashSaleModelListMaker
-import com.suret.lafyuu.model.SuperFlashSaleModel
+import com.suret.lafyuu.data.model.test.SuperFlashSaleModel
 
 
 class FavoriteFragment : Fragment() {

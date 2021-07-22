@@ -18,9 +18,9 @@ import com.suret.lafyuu.databinding.FragmentHomeBinding
 import com.suret.lafyuu.listmaker.CategoryModelListMaker
 import com.suret.lafyuu.listmaker.FlashSaleModelListMaker
 import com.suret.lafyuu.listmaker.SalesModelListMaker
-import com.suret.lafyuu.model.CategoryModel
-import com.suret.lafyuu.model.SalesModel
-import com.suret.lafyuu.model.SuperFlashSaleModel
+import com.suret.lafyuu.data.model.test.CategoryModel
+import com.suret.lafyuu.data.model.test.SalesModel
+import com.suret.lafyuu.data.model.test.SuperFlashSaleModel
 
 
 class HomeFragment : Fragment() {

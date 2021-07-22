@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.suret.lafyuu.R
-import com.suret.lafyuu.model.SuperFlashSaleModel
+import com.suret.lafyuu.data.model.test.SuperFlashSaleModel
 
 class FlashSaleRecyclerAdapter(private val flashList: MutableList<SuperFlashSaleModel>) :
     RecyclerView.Adapter<FlashSaleRecyclerAdapter.MyViewHolder>() {

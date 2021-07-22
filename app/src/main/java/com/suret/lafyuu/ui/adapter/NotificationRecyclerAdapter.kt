@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.suret.lafyuu.R
-import com.suret.lafyuu.model.NotificationModel
+import com.suret.lafyuu.data.model.test.NotificationModel
 
 class NotificationRecyclerAdapter(
     private val notificationList: MutableList<NotificationModel>,

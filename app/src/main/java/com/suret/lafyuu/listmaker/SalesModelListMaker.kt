@@ -1,6 +1,6 @@
 package com.suret.lafyuu.listmaker
 
-import com.suret.lafyuu.model.SalesModel
+import com.suret.lafyuu.data.model.test.SalesModel
 
 class SalesModelListMaker {
 

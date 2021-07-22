@@ -57,6 +57,7 @@
     <string name="special_birthday_lafyuu">Special birthday Lafyuu</string>
     <string name="super_flash_sale_50_off">Super Flash Sale \n50% Off</string>
     <string name="use_megsl_cupon_for_get_90_off">Use “MEGSL” Cupon For \nGet 90 % Off</string>
+    <string name="loading">Loading...</string>
 
 
 </resources>

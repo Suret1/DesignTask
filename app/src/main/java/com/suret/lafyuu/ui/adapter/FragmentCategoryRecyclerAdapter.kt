@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 import com.suret.lafyuu.R
-import com.suret.lafyuu.model.CategoryModel
+import com.suret.lafyuu.data.model.test.CategoryModel
 
 class FragmentCategoryRecyclerAdapter(private val categoryList: MutableList<CategoryModel>) :
     RecyclerView.Adapter<FragmentCategoryRecyclerAdapter.MyFragmentViewHolder>() {

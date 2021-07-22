@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.suret.lafyuu.R
-import com.suret.lafyuu.model.NotificationOfferModel
+import com.suret.lafyuu.data.model.test.NotificationOfferModel
 
 class OfferNotificationAdapter(private val offerList: MutableList<NotificationOfferModel>) :
     RecyclerView.Adapter<OfferNotificationAdapter.OfferViewHolder>() {

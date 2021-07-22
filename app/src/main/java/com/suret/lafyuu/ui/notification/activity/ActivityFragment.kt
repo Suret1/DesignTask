@@ -9,7 +9,7 @@ import com.suret.lafyuu.R
 import com.suret.lafyuu.ui.adapter.OfferNotificationAdapter
 import com.suret.lafyuu.databinding.FragmentActivityBinding
 import com.suret.lafyuu.listmaker.ActivityListMaker
-import com.suret.lafyuu.model.NotificationOfferModel
+import com.suret.lafyuu.data.model.test.NotificationOfferModel
 
 
 class ActivityFragment : Fragment() {

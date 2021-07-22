@@ -8,9 +8,9 @@ import android.os.Looper
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.suret.lafyuu.ChangeStatusBarColor
+import com.suret.lafyuu.util.ChangeStatusBarColor
 import com.suret.lafyuu.R
-import com.suret.lafyuu.constants.Constants
+import com.suret.lafyuu.util.Constants
 
 
 class SplashScreen : Fragment(R.layout.fragment_splash_screen) {

@@ -9,7 +9,7 @@ import com.suret.lafyuu.R
 import com.suret.lafyuu.ui.adapter.FeedRecyclerAdapter
 import com.suret.lafyuu.databinding.FragmentFeedBinding
 import com.suret.lafyuu.listmaker.FeedListMaker
-import com.suret.lafyuu.model.NotificationOfferModel
+import com.suret.lafyuu.data.model.test.NotificationOfferModel
 
 class FeedFragment : Fragment() {
     private lateinit var feedBinding: FragmentFeedBinding

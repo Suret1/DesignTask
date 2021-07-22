@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import com.suret.lafyuu.ui.adapter.CategoryRecyclerAdapter
 import com.suret.lafyuu.databinding.FragmentExploreBinding
 import com.suret.lafyuu.listmaker.CategoryModelListMaker
-import com.suret.lafyuu.model.CategoryModel
+import com.suret.lafyuu.data.model.test.CategoryModel
 
 class ExploreFragment : Fragment() {
     private lateinit var exploreBinding: FragmentExploreBinding

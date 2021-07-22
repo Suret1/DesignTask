@@ -10,7 +10,7 @@
     android:gravity="center"
     android:padding="8dp">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/category_icon"
         android:layout_width="70dp"
         android:layout_height="70dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@drawable/man_shirt" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/category_title"
         style="@style/Style.TextViewNormal"
         android:layout_marginTop="5dp"

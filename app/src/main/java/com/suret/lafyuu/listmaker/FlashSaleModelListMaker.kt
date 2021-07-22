@@ -1,6 +1,6 @@
 package com.suret.lafyuu.listmaker
 
-import com.suret.lafyuu.model.SuperFlashSaleModel
+import com.suret.lafyuu.data.model.test.SuperFlashSaleModel
 
 class FlashSaleModelListMaker {
     companion object {

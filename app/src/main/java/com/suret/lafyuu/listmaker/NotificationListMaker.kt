@@ -1,7 +1,7 @@
 package com.suret.lafyuu.listmaker
 
 import com.suret.lafyuu.R
-import com.suret.lafyuu.model.NotificationModel
+import com.suret.lafyuu.data.model.test.NotificationModel
 
 class NotificationListMaker {
     companion object {

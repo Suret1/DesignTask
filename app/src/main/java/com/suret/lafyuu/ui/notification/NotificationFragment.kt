@@ -10,7 +10,7 @@ import com.suret.lafyuu.R
 import com.suret.lafyuu.ui.adapter.NotificationRecyclerAdapter
 import com.suret.lafyuu.databinding.FragmentNotificationBinding
 import com.suret.lafyuu.listmaker.NotificationListMaker
-import com.suret.lafyuu.model.NotificationModel
+import com.suret.lafyuu.data.model.test.NotificationModel
 
 class NotificationFragment : Fragment(),
     NotificationRecyclerAdapter.OnItemClickListener {

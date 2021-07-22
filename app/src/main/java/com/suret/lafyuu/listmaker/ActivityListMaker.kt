@@ -1,7 +1,7 @@
 package com.suret.lafyuu.listmaker
 
 import com.suret.lafyuu.R
-import com.suret.lafyuu.model.NotificationOfferModel
+import com.suret.lafyuu.data.model.test.NotificationOfferModel
 
 class ActivityListMaker {
     companion object {

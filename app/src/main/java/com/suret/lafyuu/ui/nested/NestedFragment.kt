@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.setupWithNavController
-import com.suret.lafyuu.ChangeStatusBarColor
+import com.suret.lafyuu.util.ChangeStatusBarColor
 import com.suret.lafyuu.R
 import com.suret.lafyuu.databinding.FragmentNestedBinding
 

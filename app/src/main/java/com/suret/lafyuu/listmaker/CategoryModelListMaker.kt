@@ -1,7 +1,7 @@
 package com.suret.lafyuu.listmaker
 
 import com.suret.lafyuu.R
-import com.suret.lafyuu.model.CategoryModel
+import com.suret.lafyuu.data.model.test.CategoryModel
 
 class CategoryModelListMaker {
     companion object {

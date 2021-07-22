@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
 import coil.load
 import com.suret.lafyuu.R
-import com.suret.lafyuu.model.SalesModel
+import com.suret.lafyuu.data.model.test.SalesModel
 
 class ItemPagerAdapter(val list: List<SalesModel>) : PagerAdapter() {
 

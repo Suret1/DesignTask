@@ -9,7 +9,7 @@ import com.suret.lafyuu.R
 import com.suret.lafyuu.ui.adapter.FragmentCategoryRecyclerAdapter
 import com.suret.lafyuu.databinding.FragmentCategoryBinding
 import com.suret.lafyuu.listmaker.CategoryModelListMaker
-import com.suret.lafyuu.model.CategoryModel
+import com.suret.lafyuu.data.model.test.CategoryModel
 
 
 class CategoryFragment : Fragment() {
