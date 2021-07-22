@@ -3,6 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.suret.lafyuu.ui.auth.viewmodel.AuthViewModel" />
+
+    </data>
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -56,7 +64,7 @@
                 app:startIconDrawable="@drawable/person">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/full_name_edit_text"
+                    android:id="@+id/fullNameET"
                     style="@style/EditTextStyle"
                     android:inputType="textPersonName" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -86,11 +94,11 @@
                 android:layout_marginTop="16dp"
                 android:hint="@string/password_hint"
                 app:hintEnabled="true"
+                app:layout_constraintBottom_toTopOf="@id/password_again_textInputLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/email_input_layout"
                 app:passwordToggleEnabled="true"
-                app:layout_constraintBottom_toTopOf="@id/password_again_textInputLayout"
                 app:passwordToggleTint="@color/color_tint_for_password_toggle"
                 app:startIconDrawable="@drawable/lock">
 
@@ -105,20 +113,20 @@
                 style="@style/MyTextInputLayout"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="16dp"
-                android:hint="@string/password_hint"
+                android:hint="@string/again_password_hint"
                 app:hintEnabled="true"
+                app:layout_constraintBottom_toTopOf="@id/sign_in_btn"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/password_textInputLayout"
-                app:layout_constraintBottom_toTopOf="@id/sign_in_btn"
                 app:passwordToggleEnabled="true"
                 app:passwordToggleTint="@color/color_tint_for_password_toggle"
                 app:startIconDrawable="@drawable/lock">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/password_again_edit_text"
+                    android:id="@+id/confirmPasswordET"
                     style="@style/EditTextStyle"
-                    android:inputType="textPassword"  />
+                    android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <androidx.appcompat.widget.AppCompatButton
@@ -126,6 +134,7 @@
                 style="@style/CustomButton"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="16dp"
+                android:onClick="@{()->viewModel.register(fullNameET.getText().toString(),emailEditText.getText().toString(),passwordEditText.getText().toString(),confirmPasswordET.getText().toString())}"
                 android:text="@string/sign_up"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -150,8 +159,8 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/sign_tv"
                     style="@style/Style.TextViewBold"
-                    android:layout_marginStart="5dp"
                     android:layout_marginTop="10dp"
+                    android:padding="5dp"
                     android:text="@string/sign_in"
                     android:textColor="@color/blue" />
             </LinearLayout>

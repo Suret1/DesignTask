@@ -4,12 +4,12 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.suret.lafyuu.R
 import com.suret.lafyuu.data.model.ErrorModel
 import com.suret.lafyuu.data.model.LoginModel
+import com.suret.lafyuu.data.model.RegisterModel
 import com.suret.lafyuu.data.model.TypeError
 import com.suret.lafyuu.data.util.Common
 import com.suret.lafyuu.data.util.Resource
@@ -45,6 +45,103 @@ class AuthViewModel @Inject constructor(
     private val registerChannel = Channel<Event>()
     val registerFlow = registerChannel.receiveAsFlow()
 
+    fun register(fullName: String, email: String, password: String, confirmPassword: String) =
+        viewModelScope.launch(Dispatchers.IO) {
+            if (fullName.isNullOrEmpty()) {
+                registerChannel.send(
+                    Event.Failure(
+                        ErrorModel(
+                            context.getString(R.string.fullname_not_empty),
+                            TypeError.FULLNAME_ERROR
+                        )
+                    )
+                )
+            } else if (email.isNullOrEmpty()) {
+                registerChannel.send(
+                    Event.Failure(
+                        ErrorModel(
+                            context.getString(R.string.email_not_empty),
+                            TypeError.EMAIL_ERROR
+                        )
+                    )
+                )
+            } else if (!Common.isEmailInValid(email ?: "")) {
+                registerChannel.send(
+                    Event.Failure(
+                        ErrorModel(
+                            context.getString(R.string.email_format_incorrect),
+                            TypeError.INVALID_EMAIL_ERROR
+                        )
+                    )
+                )
+            }else if (password.isNullOrEmpty()) {
+                registerChannel.send(
+                    Event.Failure(
+                        ErrorModel(
+                            context.getString(R.string.password_not_empty),
+                            TypeError.PASSWORD_ERROR
+                        )
+                    )
+                )
+            } else if (confirmPassword.isNullOrEmpty()) {
+                registerChannel.send(
+                    Event.Failure(
+                        ErrorModel(
+                            context.getString(R.string.password_not_empty),
+                            TypeError.CONFIRM_PASS_ERROR
+                        )
+                    )
+                )
+            } else if (password != confirmPassword) {
+                registerChannel.send(
+                    Event.Failure(
+                        ErrorModel(
+                            context.getString(R.string.confirm_pass_not_same),
+                            TypeError.CONFIRM_PASS_SAME_ERROR
+                        )
+                    )
+                )
+            } else {
+                val register = RegisterModel(fullName, email, password)
+                if (isNetworkAvailable(context)) {
+                    registerChannel.send(Event.Loading)
+                    when (val result = registerUseCase.execute(register)) {
+                        is Resource.Success<*> -> {
+                            result.data?.let {
+                                registerChannel.send(Event.Success(it))
+                            } ?: kotlin.run {
+                                registerChannel.send(
+                                    Event.Failure(
+                                        ErrorModel(
+                                            result.message,
+                                            null
+                                        )
+                                    )
+                                )
+                            }
+                        }
+                        else -> {
+                            registerChannel.send(
+                                Event.Failure(
+                                    ErrorModel(
+                                        result.message(),
+                                        null
+                                    )
+                                )
+                            )
+                        }
+                    }
+                } else {
+                    loginChannel.send(
+                        Event.Failure(
+                            ErrorModel(
+                                context.getString(R.string.no_internet) ?: "", null
+                            )
+                        )
+                    )
+                }
+            }
+        }
 
     fun login(email: String?, password: String?) = viewModelScope.launch {
         Dispatchers.IO
@@ -91,12 +188,10 @@ class AuthViewModel @Inject constructor(
                         result.data?.let {
                             loginChannel.send(Event.Success(it))
                         } ?: kotlin.run {
-                            Log.d("asdsdsa",result.message.toString())
                             loginChannel.send(Event.Failure(ErrorModel(result.message ?: "", null)))
                         }
                     }
                     else -> {
-                        Log.d("asdsdsa",result.message.toString())
                         loginChannel.send(Event.Failure(ErrorModel(result.message ?: "", null)))
                     }
                 }

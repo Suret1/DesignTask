@@ -139,7 +139,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/register_tv"
                     style="@style/Style.TextViewBold"
-                    android:layout_marginStart="5dp"
+                    android:padding="5dp"
                     android:layout_marginTop="10dp"
                     android:text="@string/register"
                     android:textColor="@color/blue" />

@@ -4,8 +4,8 @@ import androidx.annotation.Keep
 
 @Keep
 data class RegisterModel(
-    val email: String,
     val name: String,
+    val email: String,
     val password: String
 )
 @Keep

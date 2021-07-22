@@ -107,12 +107,10 @@ class LoginFragment : Fragment() {
                 }
             }
         }
-
+        loginBinding.registerTv.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+        }
     }
-
-//        loginBinding.registerTv.setOnClickListener {
-//            view.findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
-//        }
 //
 //        loginBinding.signInBtn.setOnClickListener {
 //

@@ -37,8 +37,6 @@ F
 app/proguard-rules.pro,9\e\9e08934d811afe28fbc77aaa3c0d747b94348db9
 ?
 settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
-n
->app/src/main/java/com/suret/lafyuu/data/model/RegisterModel.kt,5\6\56416eaa06ba3280990b078752afff4846a06eea
 A
 gradle.properties,2\a\2afbb999f001938c88fa43fc2ef52abf0f8213e4
 ‰

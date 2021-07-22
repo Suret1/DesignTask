@@ -63,6 +63,10 @@
     <string name="email_format_incorrect">Email format is incorrect</string>
     <string name="no_internet">No internet</string>
     <string name="login_success">Login Successfully</string>
+    <string name="again_password_hint">Again Password</string>
+    <string name="fullname_not_empty">Fullname must not be empty</string>
+    <string name="confirm_pass_not_same">Passwords are not the same</string>
+    <string name="register_success">Register Successfully</string>
 
 
 </resources>
