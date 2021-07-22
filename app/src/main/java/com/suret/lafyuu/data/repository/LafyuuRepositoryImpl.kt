@@ -24,10 +24,10 @@ class LafyuuRepositoryImpl(
             result.body()?.let {data->
                 return Resource.Success(data)
             } ?: kotlin.run {
-                return Resource.Error(message = result.message())
+                return Resource.Error(result.message())
             }
         }else{
-            return Resource.Error(message = result.message())
+            return Resource.Error(result.message())
         }
     }
 

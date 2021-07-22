@@ -58,6 +58,11 @@
     <string name="super_flash_sale_50_off">Super Flash Sale \n50% Off</string>
     <string name="use_megsl_cupon_for_get_90_off">Use “MEGSL” Cupon For \nGet 90 % Off</string>
     <string name="loading">Loading...</string>
+    <string name="email_not_empty">Email must not be empty</string>
+    <string name="password_not_empty">Password must not be empty</string>
+    <string name="email_format_incorrect">Email format is incorrect</string>
+    <string name="no_internet">No internet</string>
+    <string name="login_success">Login Successfully</string>
 
 
 </resources>

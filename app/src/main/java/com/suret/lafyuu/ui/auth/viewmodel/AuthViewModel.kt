@@ -4,8 +4,10 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.suret.lafyuu.R
 import com.suret.lafyuu.data.model.ErrorModel
 import com.suret.lafyuu.data.model.LoginModel
 import com.suret.lafyuu.data.model.TypeError
@@ -50,20 +52,23 @@ class AuthViewModel @Inject constructor(
         if (email.isNullOrEmpty() && password.isNullOrEmpty()) {
             loginChannel.send(
                 Event.Failure(
-                    ErrorModel("Email bos ola bilmez", TypeError.EMAIL_PASSWORD_ERROR)
+                    ErrorModel(
+                        context.getString(R.string.email_not_empty),
+                        TypeError.EMAIL_PASSWORD_ERROR
+                    )
                 )
             )
         } else if (email.isNullOrEmpty()) {
             loginChannel.send(
                 Event.Failure(
-                    ErrorModel("Email bos ola bilmez", TypeError.EMAIL_ERROR)
+                    ErrorModel(context.getString(R.string.email_not_empty), TypeError.EMAIL_ERROR)
                 )
             )
         } else if (!Common.isEmailInValid(email ?: "")) {
             loginChannel.send(
                 Event.Failure(
                     ErrorModel(
-                        "Duzgun email daxil edin",
+                        context.getString(R.string.email_format_incorrect),
                         TypeError.INVALID_EMAIL_ERROR
                     )
                 )
@@ -71,28 +76,39 @@ class AuthViewModel @Inject constructor(
         } else if (password.isNullOrEmpty()) {
             loginChannel.send(
                 Event.Failure(
-                    ErrorModel("Parol bos ola bilmez", TypeError.PASSWORD_ERROR)
+                    ErrorModel(
+                        context.getString(R.string.password_not_empty),
+                        TypeError.PASSWORD_ERROR
+                    )
                 )
             )
-        }
-
-        val body = LoginModel(email ?: " ", password ?: " ")
-        if (isNetworkAvailable(context)) {
-            loginChannel.send(Event.Loading)
-            when (val result = loginUseCase.execute(body)) {
-                is Resource.Success -> {
-                    result.data?.let {
-                        loginChannel.send(Event.Success(it))
-                    } ?: kotlin.run {
+        } else {
+            val body = LoginModel(email ?: " ", password ?: " ")
+            if (isNetworkAvailable(context)) {
+                loginChannel.send(Event.Loading)
+                when (val result = loginUseCase.execute(body)) {
+                    is Resource.Success -> {
+                        result.data?.let {
+                            loginChannel.send(Event.Success(it))
+                        } ?: kotlin.run {
+                            Log.d("asdsdsa",result.message.toString())
+                            loginChannel.send(Event.Failure(ErrorModel(result.message ?: "", null)))
+                        }
+                    }
+                    else -> {
+                        Log.d("asdsdsa",result.message.toString())
                         loginChannel.send(Event.Failure(ErrorModel(result.message ?: "", null)))
                     }
                 }
-                else -> {
-                    loginChannel.send(Event.Failure(ErrorModel(result.message ?: "", null)))
-                }
+            } else {
+                loginChannel.send(
+                    Event.Failure(
+                        ErrorModel(
+                            context.getString(R.string.no_internet) ?: "", null
+                        )
+                    )
+                )
             }
-        } else {
-            loginChannel.send(Event.Failure(ErrorModel("No internet" ?: "", null)))
         }
     }
 

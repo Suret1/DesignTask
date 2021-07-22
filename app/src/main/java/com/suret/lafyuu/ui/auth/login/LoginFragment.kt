@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
@@ -58,24 +59,48 @@ class LoginFragment : Fragment() {
                             progressBar.show()
                         }
                         is AuthViewModel.Event.Failure -> {
-                            val typeError = event.errorModel?.typeError
-                            if (typeError == TypeError.EMAIL_PASSWORD_ERROR) {
-                                usernameTextInputLayout.error = event.errorModel.message
-                                passwordTextInputLayout.error = "Parol bos ola bilmez"
-                            } else if (typeError == TypeError.EMAIL_ERROR) {
-                                passwordTextInputLayout.error = null
-                                usernameTextInputLayout.error = event.errorModel.message
-                            } else if (typeError == TypeError.PASSWORD_ERROR) {
-                                usernameTextInputLayout.error = null
-                                passwordTextInputLayout.error = event.errorModel.message
-                            } else if (typeError == TypeError.INVALID_EMAIL_ERROR) {
-                                usernameTextInputLayout.error = event.errorModel.message
-                                passwordTextInputLayout.error = null
+                            when (event.errorModel?.typeError) {
+                                TypeError.EMAIL_PASSWORD_ERROR -> {
+                                    usernameTextInputLayout.error = event.errorModel.message
+                                    passwordTextInputLayout.error =
+                                        getString(R.string.password_not_empty)
+                                    passwordTextInputLayout.errorIconDrawable = null
+                                }
+                                TypeError.EMAIL_ERROR -> {
+                                    passwordTextInputLayout.error = null
+                                    passwordTextInputLayout.errorIconDrawable = null
+                                    usernameTextInputLayout.error = event.errorModel.message
+                                }
+                                TypeError.PASSWORD_ERROR -> {
+                                    usernameTextInputLayout.error = null
+                                    passwordTextInputLayout.errorIconDrawable = null
+                                    passwordTextInputLayout.error = event.errorModel.message
+                                }
+                                TypeError.INVALID_EMAIL_ERROR -> {
+                                    usernameTextInputLayout.error = event.errorModel.message
+                                    passwordTextInputLayout.error = null
+                                    passwordTextInputLayout.errorIconDrawable = null
+                                }
+                                else -> {
+                                    passwordTextInputLayout.errorIconDrawable = null
+                                    usernameTextInputLayout.error = null
+                                    passwordTextInputLayout.error = null
+                                    Toast.makeText(
+                                        requireContext(),
+                                        event.errorModel?.message,
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
                             }
                             progressBar.dismiss()
                         }
-                        is AuthViewModel.Event.Success<*> ->{
+                        is AuthViewModel.Event.Success<*> -> {
                             progressBar.dismiss()
+                            Toast.makeText(
+                                requireContext(),
+                                getString(R.string.login_success),
+                                Toast.LENGTH_SHORT
+                            ).show()
                             findNavController().navigate(R.id.action_login_to_nestedFragment)
                         }
                     }

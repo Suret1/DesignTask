@@ -11,8 +11,6 @@ p
 Oapp/src/main/java/com/suret/lafyuu/ui/notification/activity/ActivityFragment.kt,1\f\1ff37807cc84c4f79d5d778625981f9abcc49feb
 y
 Iapp/src/main/java/com/suret/lafyuu/ui/home/sale/SuperFlashSaleFragment.kt,e\7\e7a2bca82a9cb580ca1dc7032478728db2464f7a
-j
-:app/src/main/java/com/suret/lafyuu/ui/home/HomeFragment.kt,1\4\143224217eed574ba6065c1730b682f9cac69ac8
 l
 <app/src/main/java/com/suret/lafyuu/ui/offer/OfferFragment.kt,8\4\843c971715bc912647f7f23ba402d886dda6ee49
 x
@@ -45,8 +43,6 @@ A
 gradle.properties,2\a\2afbb999f001938c88fa43fc2ef52abf0f8213e4
 ‰
 Yapp/src/main/java/com/suret/lafyuu/data/repository/datasourceimpl/RemoteDataSourceImpl.kt,6\2\624d9bd1fd990e393ecb8641b2f70566352c93d3
-P
- app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 h
 8app/src/main/java/com/suret/lafyuu/data/util/Resource.kt,6\c\6c7613610103d44203d9a36429687c76e2d95deb
 b
@@ -63,12 +59,8 @@ i
 Xapp/src/main/java/com/suret/lafyuu/data/repository/datasourceimpl/LocalDataSourceImpl.kt,a\f\af895782b2495a0effe7109a329a94fb938785d4
 j
 :app/src/main/java/com/suret/lafyuu/di/DataSourcesModule.kt,2\b\2b2e324fb103e6bdda148b84df51d176aca16533
-t
-Dapp/src/main/java/com/suret/lafyuu/domain/usecase/RegisterUseCase.kt,c\1\c19705d7e49b4c6a7879e073bd4e0e662811fe87
 k
 ;app/src/main/java/com/suret/lafyuu/data/model/LoginModel.kt,7\b\7b2e2f1d53312f4c6e04c8514bc835c3d6c0db5e
-z
-Japp/src/main/java/com/suret/lafyuu/data/repository/LafyuuRepositoryImpl.kt,b\d\bd4b2d7783c0116d06bd4eaaf5a644bf208de51f
 r
 Bapp/src/main/java/com/suret/lafyuu/ui/favorite/FavoriteFragment.kt,0\4\045d5310b35f3fb3b72fa5c85055ec83b5f117de
 t
@@ -77,14 +69,8 @@ Dapp/src/main/java/com/suret/lafyuu/ui/adapter/ProductItemsAdapter.kt,4\b\4b54d
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
 Y
 )app/src/main/java/com/suret/lafyuu/App.kt,f\5\f5382186500d10839255f34e8e5d050251d1f24a
-f
-6app/src/main/java/com/suret/lafyuu/data/util/Common.kt,3\b\3b0468467e85a213a81d262bf4fed25d795a255c
-x
-Happ/src/main/java/com/suret/lafyuu/domain/repository/LafyuuRepository.kt,5\4\54e7b9770406c884769760dc13c4154e216ce3fa
 p
 @app/src/main/java/com/suret/lafyuu/data/util/PreferenceHelper.kt,9\0\90960c011b45c5b65784b6101e4e810b16072e1f
-q
-Aapp/src/main/java/com/suret/lafyuu/domain/usecase/LoginUseCase.kt,c\c\ccd58edf66c1b295b90ab5d7c193ad8fc493c696
 q
 Aapp/src/main/java/com/suret/lafyuu/listmaker/ActivityListMaker.kt,a\a\aa1a1979a90faa0e970652dfdd4cbf0ef7f31a92
 v
@@ -95,7 +81,7 @@ s
 Capp/src/main/java/com/suret/lafyuu/listmaker/SalesModelListMaker.kt,1\0\1042b9930d865cabef062694a8f4060d976b74dc
 r
 Bapp/src/main/java/com/suret/lafyuu/ui/splashscreen/SplashScreen.kt,6\6\66b566da05f8cd9892de31c1104bed4c6c5f2f9a
-n
->app/src/main/java/com/suret/lafyuu/ui/activity/MainActivity.kt,7\6\76130ea43196bbad8893fe2df9f8fbf7252159c8
-n
->app/src/main/java/com/suret/lafyuu/ui/nested/NestedFragment.kt,9\a\9a32d5d5c55990c4d9b2072424ba500f5ba1e4eb
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+a
+1app/src/main/java/com/suret/lafyuu/util/PopUps.kt,2\d\2d51d9d6bd1fdb1bbf4bb3b18f59309523dc75d8

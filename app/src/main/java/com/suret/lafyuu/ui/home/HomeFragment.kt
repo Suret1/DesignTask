@@ -21,6 +21,7 @@ import com.suret.lafyuu.listmaker.SalesModelListMaker
 import com.suret.lafyuu.data.model.test.CategoryModel
 import com.suret.lafyuu.data.model.test.SalesModel
 import com.suret.lafyuu.data.model.test.SuperFlashSaleModel
+import com.suret.lafyuu.util.Utils
 
 
 class HomeFragment : Fragment() {
@@ -42,6 +43,8 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        Utils.hideKeyboard(requireActivity())
 
         salesList = SalesModelListMaker.salesListMaker()
 
