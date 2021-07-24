@@ -1,4 +1,4 @@
-package com.suret.lafyuu.data.model
+package com.suret.lafyuu.data.util
 
 data class ErrorModel(val message: String?, val typeError: TypeError?)
 

@@ -1,7 +1,8 @@
 package com.suret.lafyuu.di
 
 import com.suret.lafyuu.BuildConfig
-import com.suret.lafyuu.data.api.IAuthAPI
+import com.suret.lafyuu.data.api.AuthAPI
+import com.suret.lafyuu.data.api.HomePageAPI
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -42,8 +43,14 @@ object ApiModule {
 
     @Provides
     @Singleton
-    fun provideAuthAPI(retrofit: Retrofit): IAuthAPI {
-        return retrofit.create(IAuthAPI::class.java)
+    fun provideAuthAPI(retrofit: Retrofit): AuthAPI {
+        return retrofit.create(AuthAPI::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideHomeAPI(retrofit: Retrofit): HomePageAPI {
+        return retrofit.create(HomePageAPI::class.java)
     }
 
 }

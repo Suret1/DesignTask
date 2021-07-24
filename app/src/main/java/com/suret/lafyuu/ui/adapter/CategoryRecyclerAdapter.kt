@@ -1,37 +1,68 @@
 package com.suret.lafyuu.ui.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.suret.lafyuu.R
-import com.suret.lafyuu.data.model.test.CategoryModel
+import coil.load
+import com.suret.lafyuu.data.model.Category
+import com.suret.lafyuu.databinding.CategoryListLayoutBinding
 
-class CategoryRecyclerAdapter(
-    private val categoryList: MutableList<CategoryModel>) :
-    RecyclerView.Adapter<CategoryRecyclerAdapter.MyViewHolder>() {
+class CategoryRecyclerAdapter :
+    RecyclerView.Adapter<CategoryRecyclerAdapter.CategoryViewHolder>() {
 
+    private val differCallBack = object : DiffUtil.ItemCallback<Category>() {
+        override fun areItemsTheSame(
+            oldItem: Category,
+            newItem: Category
+        ): Boolean {
+            return oldItem.categoryId == newItem.categoryId
+        }
 
-    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val categoryIcon: ImageView = itemView.findViewById(R.id.category_icon)
-        val categoryTitle: TextView = itemView.findViewById(R.id.category_title)
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val layoutInflater = LayoutInflater.from(parent.context)
-        val view = layoutInflater.inflate(R.layout.category_list_layout, parent, false)
-        return MyViewHolder(view)
-    }
-
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.categoryIcon.setImageResource(categoryList[position].categoryIcon)
-        holder.categoryTitle.text =
-            (holder.itemView.context.resources.getString(categoryList[position].categoryTitle))
+        override fun areContentsTheSame(
+            oldItem: Category,
+            newItem: Category
+        ): Boolean {
+            return oldItem == newItem
+        }
 
     }
 
-    override fun getItemCount(): Int = categoryList.size
+    val differ = AsyncListDiffer(this, differCallBack)
+
+    inner class CategoryViewHolder(private val categoryListLayoutBinding: CategoryListLayoutBinding) :
+        RecyclerView.ViewHolder(categoryListLayoutBinding.root) {
+        fun bind(category: Category?) {
+            categoryListLayoutBinding.apply {
+                category?.let {
+                    categoryIcon.load(it.icon)
+                    categoryTitle.text = it.title
+                }
+            }
+        }
+    }
+
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): CategoryRecyclerAdapter.CategoryViewHolder {
+        return CategoryViewHolder(
+            CategoryListLayoutBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
+    }
+
+    override fun onBindViewHolder(
+        holder: CategoryRecyclerAdapter.CategoryViewHolder,
+        position: Int
+    ) {
+        holder.bind(differ.currentList.getOrNull(position))
+    }
+
+    override fun getItemCount(): Int = differ.currentList.size
 
 }

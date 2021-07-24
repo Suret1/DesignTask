@@ -26,18 +26,18 @@ class ExploreFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        categoryForMan = CategoryModelListMaker.categoryListForMan()
-        categoryForWoman = CategoryModelListMaker.categoryListForWoman()
-
-        val manAdapter = CategoryRecyclerAdapter(categoryForMan)
-        val womanAdapter = CategoryRecyclerAdapter(categoryForWoman)
-
-        exploreBinding.apply {
-
-            manFashionRecycler.adapter = manAdapter
-            womanFashionRecycler.adapter = womanAdapter
-        }
+//
+//        categoryForMan = CategoryModelListMaker.categoryListForMan()
+//        categoryForWoman = CategoryModelListMaker.categoryListForWoman()
+//
+//        val manAdapter = CategoryRecyclerAdapter(categoryForMan)
+//        val womanAdapter = CategoryRecyclerAdapter(categoryForWoman)
+//
+//        exploreBinding.apply {
+//
+//            manFashionRecycler.adapter = manAdapter
+//            womanFashionRecycler.adapter = womanAdapter
+//        }
 
 
     }

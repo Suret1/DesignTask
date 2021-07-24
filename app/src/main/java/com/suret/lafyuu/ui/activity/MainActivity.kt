@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.suret.lafyuu.R
 import com.suret.lafyuu.databinding.ActivityMainBinding
+import com.suret.lafyuu.util.Constants
+import com.suret.lafyuu.util.Constants.SETTINGS_PREF
+import com.suret.lafyuu.util.PreferenceHelper
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

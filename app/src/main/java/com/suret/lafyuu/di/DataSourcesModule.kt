@@ -1,6 +1,7 @@
 package com.suret.lafyuu.di
 
-import com.suret.lafyuu.data.api.IAuthAPI
+import com.suret.lafyuu.data.api.AuthAPI
+import com.suret.lafyuu.data.api.HomePageAPI
 import com.suret.lafyuu.data.repository.datasource.LocalDataSource
 import com.suret.lafyuu.data.repository.datasource.RemoteDataSource
 import com.suret.lafyuu.data.repository.datasourceimpl.LocalDataSourceImpl
@@ -17,8 +18,8 @@ object DataSourcesModule {
 
     @Singleton
     @Provides
-    fun provideRemoteDataSource(authAPI: IAuthAPI): RemoteDataSource {
-        return RemoteDataSourceImpl(authAPI)
+    fun provideRemoteDataSource(authAPI: AuthAPI, homePageAPI: HomePageAPI): RemoteDataSource {
+        return RemoteDataSourceImpl(authAPI, homePageAPI)
     }
 
     @Singleton

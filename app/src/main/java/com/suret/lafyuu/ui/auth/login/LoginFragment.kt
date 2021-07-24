@@ -2,6 +2,7 @@ package com.suret.lafyuu.ui.auth.login
 
 import android.app.ProgressDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,11 +12,15 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.suret.lafyuu.R
-import com.suret.lafyuu.data.model.TypeError
+import com.suret.lafyuu.data.util.TypeError
 import com.suret.lafyuu.databinding.FragmentLoginBinding
 import com.suret.lafyuu.ui.auth.viewmodel.AuthViewModel
 import com.suret.lafyuu.util.ChangeStatusBarColor
+import com.suret.lafyuu.util.Constants.SETTINGS_PREF
+import com.suret.lafyuu.util.Constants.TOKEN
 import com.suret.lafyuu.util.PopUps
+import com.suret.lafyuu.util.PreferenceHelper
+import com.suret.lafyuu.util.PreferenceHelper.set
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -94,13 +99,18 @@ class LoginFragment : Fragment() {
                             }
                             progressBar.dismiss()
                         }
-                        is AuthViewModel.Event.Success<*> -> {
+                        is AuthViewModel.Event.LoginSuccess -> {
                             progressBar.dismiss()
                             Toast.makeText(
                                 requireContext(),
-                                getString(R.string.login_success),
+                                event.message,
                                 Toast.LENGTH_SHORT
                             ).show()
+                            PreferenceHelper.customPrefs(
+                                requireContext(),
+                                SETTINGS_PREF
+                            )[TOKEN] = "Bearer ${event.result.token}"
+                            Log.d("tokenss", event.result.token)
                             findNavController().navigate(R.id.action_login_to_nestedFragment)
                         }
                     }

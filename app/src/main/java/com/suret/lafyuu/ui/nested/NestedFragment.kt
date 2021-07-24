@@ -30,6 +30,7 @@ class NestedFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        Utils.hideKeyboard(requireActivity())
 
         activity?.let {
             ChangeStatusBarColor.changeStatusBarColorForMode(

@@ -1,20 +1,21 @@
 package com.suret.lafyuu.ui.auth.viewmodel
 
 import android.content.Context
-import android.net.ConnectivityManager
-import android.net.NetworkCapabilities
-import android.os.Build
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.suret.lafyuu.R
-import com.suret.lafyuu.data.model.ErrorModel
 import com.suret.lafyuu.data.model.LoginModel
 import com.suret.lafyuu.data.model.RegisterModel
-import com.suret.lafyuu.data.model.TypeError
+import com.suret.lafyuu.data.model.ResponseLoginModel
+import com.suret.lafyuu.data.model.ResponseRegisterModel
 import com.suret.lafyuu.data.util.Common
+import com.suret.lafyuu.data.util.ErrorModel
 import com.suret.lafyuu.data.util.Resource
+import com.suret.lafyuu.data.util.TypeError
 import com.suret.lafyuu.domain.usecase.LoginUseCase
 import com.suret.lafyuu.domain.usecase.RegisterUseCase
+import com.suret.lafyuu.util.Utils
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
@@ -31,8 +32,15 @@ class AuthViewModel @Inject constructor(
 ) : ViewModel() {
 
     sealed class Event {
-        class Success<T>(
-            val result: T,
+
+        class RegisterSuccess(
+            val result: ResponseRegisterModel,
+            val message: String?
+        ) : Event()
+
+        class LoginSuccess(
+            val result: ResponseLoginModel,
+            val message: String?
         ) : Event()
 
         class Failure(val errorModel: ErrorModel?) : Event()
@@ -74,7 +82,7 @@ class AuthViewModel @Inject constructor(
                         )
                     )
                 )
-            }else if (password.isNullOrEmpty()) {
+            } else if (password.isNullOrEmpty()) {
                 registerChannel.send(
                     Event.Failure(
                         ErrorModel(
@@ -103,12 +111,12 @@ class AuthViewModel @Inject constructor(
                 )
             } else {
                 val register = RegisterModel(fullName, email, password)
-                if (isNetworkAvailable(context)) {
+                if (Utils.isNetworkAvailable(context)) {
                     registerChannel.send(Event.Loading)
                     when (val result = registerUseCase.execute(register)) {
-                        is Resource.Success<*> -> {
+                        is Resource.Success -> {
                             result.data?.let {
-                                registerChannel.send(Event.Success(it))
+                                registerChannel.send(Event.RegisterSuccess(it,it.message))
                             } ?: kotlin.run {
                                 registerChannel.send(
                                     Event.Failure(
@@ -124,7 +132,7 @@ class AuthViewModel @Inject constructor(
                             registerChannel.send(
                                 Event.Failure(
                                     ErrorModel(
-                                        result.message(),
+                                        result.message,
                                         null
                                     )
                                 )
@@ -132,7 +140,7 @@ class AuthViewModel @Inject constructor(
                         }
                     }
                 } else {
-                    loginChannel.send(
+                    registerChannel.send(
                         Event.Failure(
                             ErrorModel(
                                 context.getString(R.string.no_internet) ?: "", null
@@ -181,18 +189,33 @@ class AuthViewModel @Inject constructor(
             )
         } else {
             val body = LoginModel(email ?: " ", password ?: " ")
-            if (isNetworkAvailable(context)) {
+            if (Utils.isNetworkAvailable(context)) {
                 loginChannel.send(Event.Loading)
                 when (val result = loginUseCase.execute(body)) {
                     is Resource.Success -> {
                         result.data?.let {
-                            loginChannel.send(Event.Success(it))
+                            loginChannel.send(Event.LoginSuccess(it, it.message))
                         } ?: kotlin.run {
-                            loginChannel.send(Event.Failure(ErrorModel(result.message ?: "", null)))
+                            loginChannel.send(
+                                Event.Failure(
+                                    ErrorModel(
+                                        result.message ?: "",
+                                        null
+                                    )
+                                )
+                            )
                         }
                     }
                     else -> {
-                        loginChannel.send(Event.Failure(ErrorModel(result.message ?: "", null)))
+                            loginChannel.send(
+                                Event.Failure(
+                                    ErrorModel(
+                                        result.message ?: "",
+                                        null
+                                    )
+                                )
+                            )
+
                     }
                 }
             } else {
@@ -207,28 +230,4 @@ class AuthViewModel @Inject constructor(
         }
     }
 
-    private fun isNetworkAvailable(context: Context): Boolean {
-        val connectivityManager =
-            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-
-        // For 29 api or above
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            val capabilities =
-                connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
-                    ?: return false
-            return when {
-                capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
-                capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> true
-                capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
-                else -> false
-            }
-        }
-        // For below 29 api
-        else {
-            if (connectivityManager.activeNetworkInfo != null && connectivityManager.activeNetworkInfo!!.isConnectedOrConnecting) {
-                return true
-            }
-        }
-        return false
-    }
 }

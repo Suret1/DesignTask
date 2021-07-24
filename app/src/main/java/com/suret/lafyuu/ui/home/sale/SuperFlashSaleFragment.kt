@@ -32,27 +32,25 @@ class SuperFlashSaleFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        flashSaleList = FlashSaleModelListMaker.flashSaleListMaker()
-        salesList = SalesModelListMaker.salesListMaker()
-
-        salesList.removeFirstOrNull()
-
-        salesList.removeLastOrNull()
-
-        val flashSaleAdapter = ProductItemsAdapter(flashSaleList)
-        val itemPagerAdapter = ItemPagerAdapter(salesList)
-
-
-        superFlashSaleBinding.apply {
-            superFlashSaleRecycler.adapter = flashSaleAdapter
-            flashSaleViewPager.adapter = itemPagerAdapter
-            flashSaleToolbar.setNavigationIcon(R.drawable.back_btn)
-            flashSaleToolbar.setNavigationOnClickListener {
-                activity?.onBackPressed()
-            }
+//        flashSaleList = FlashSaleModelListMaker.flashSaleListMaker()
+//        salesList = SalesModelListMaker.salesListMaker()
+//
+//        salesList.removeFirstOrNull()
+//
+//        salesList.removeLastOrNull()
+//
+//        val flashSaleAdapter = ProductItemsAdapter(flashSaleList)
+//        val itemPagerAdapter = ItemPagerAdapter(salesList)
+//
+//
+//        superFlashSaleBinding.apply {
+//            superFlashSaleRecycler.adapter = flashSaleAdapter
+//            flashSaleViewPager.adapter = itemPagerAdapter
+//            flashSaleToolbar.setNavigationIcon(R.drawable.back_btn)
+//            flashSaleToolbar.setNavigationOnClickListener {
+//                activity?.onBackPressed()
+//            }
         }
 
-
-    }
 
 }

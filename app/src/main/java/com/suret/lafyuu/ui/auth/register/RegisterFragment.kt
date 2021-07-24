@@ -11,7 +11,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.suret.lafyuu.R
-import com.suret.lafyuu.data.model.TypeError
+import com.suret.lafyuu.data.util.TypeError
 import com.suret.lafyuu.databinding.FragmentRegisterBinding
 import com.suret.lafyuu.ui.auth.viewmodel.AuthViewModel
 import com.suret.lafyuu.util.ChangeStatusBarColor
@@ -126,7 +126,7 @@ class RegisterFragment : Fragment() {
                             }
                             progressBar.dismiss()
                         }
-                        is AuthViewModel.Event.Success<*> -> {
+                        is AuthViewModel.Event.RegisterSuccess-> {
                             progressBar.dismiss()
                             Toast.makeText(
                                 requireContext(),

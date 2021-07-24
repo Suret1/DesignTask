@@ -10,9 +10,10 @@ import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
 import coil.load
 import com.suret.lafyuu.R
+import com.suret.lafyuu.data.model.Advertisment
 import com.suret.lafyuu.data.model.test.SalesModel
 
-class ItemPagerAdapter(val list: List<SalesModel>) : PagerAdapter() {
+class ItemPagerAdapter(private val list: List<Advertisment>) : PagerAdapter() {
 
     override fun getCount(): Int = list.size
 
@@ -31,21 +32,21 @@ class ItemPagerAdapter(val list: List<SalesModel>) : PagerAdapter() {
 
         container.addView(slideLayout)
 
-        imageView.load(list[position].imageUrl) {
+        imageView.load(list[position].image) {
             crossfade(true)
         }
         textView.text = list[position].title
 
-        object : CountDownTimer(list[position].date, 1000) {
-            override fun onTick(millisUntilFinished: Long) {
-                hourTV.text = (millisUntilFinished / (1000 * 60 * 60) % 24).toString()
-                minuteTV.text = ((millisUntilFinished / (1000 * 60)) % 60).toString()
-                secondTV.text = (millisUntilFinished / 1000 % 60).toString()
-            }
-
-            override fun onFinish() {
-            }
-        }.start()
+//        object : CountDownTimer(list[position].date, 1000) {
+//            override fun onTick(millisUntilFinished: Long) {
+//                hourTV.text = (millisUntilFinished / (1000 * 60 * 60) % 24).toString()
+//                minuteTV.text = ((millisUntilFinished / (1000 * 60)) % 60).toString()
+//                secondTV.text = (millisUntilFinished / 1000 % 60).toString()
+//            }
+//
+//            override fun onFinish() {
+//            }
+//        }.start()
 
         return slideLayout
     }
