@@ -64,7 +64,7 @@ class HomeFragment : Fragment() {
 //        flashSaleList = FlashSaleModelListMaker.flashSaleListMaker()
 
 
-        val categoryAdapter = CategoryRecyclerAdapter()
+        val categoryAdapter = CategoryRecyclerAdapter(requireActivity())
         val flashSaleAdapter = FlashSaleRecyclerAdapter(flashSaleList)
         val gridAdapter = ProductItemsAdapter(flashSaleList)
 
@@ -108,7 +108,6 @@ class HomeFragment : Fragment() {
 //            indicator.setupWithViewPager(viewPager)
 
 
-
 //            categoryRecyclerView.adapter = categoryAdapter
 //
 //            flashSaleRecycler.adapter = flashSaleAdapter
@@ -135,21 +134,17 @@ class HomeFragment : Fragment() {
     }
 
     private fun FragmentHomeBinding.setViewPager(advertisement: List<Advertisment>?) {
-        val itemPagerAdapter = advertisement?.let { it1 ->
-            ItemPagerAdapter(
-                it1
-            )
-        }
-        viewPager.adapter = itemPagerAdapter
+        advertisement?.let {
+            val itemPagerAdapter = ItemPagerAdapter(it)
 
-        indicator.setupWithViewPager(viewPager)
+            viewPager.adapter = itemPagerAdapter
 
-        if (advertisement != null) {
-            sliderTimer(viewPager, advertisement)
+            indicator.setupWithViewPager(viewPager)
+            sliderTimer(viewPager, it)
         }
     }
 
-    private fun sliderTimer(viewPager: ViewPager,advertisement: List<Advertisment>) {
+    private fun sliderTimer(viewPager: ViewPager, advertisement: List<Advertisment>) {
         runnable = object : Runnable {
             override fun run() {
                 if (viewPager.currentItem < advertisement.size - 1) {

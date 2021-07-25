@@ -18,6 +18,7 @@ import com.suret.lafyuu.ui.auth.viewmodel.AuthViewModel
 import com.suret.lafyuu.util.ChangeStatusBarColor
 import com.suret.lafyuu.util.Constants.SETTINGS_PREF
 import com.suret.lafyuu.util.Constants.TOKEN
+import com.suret.lafyuu.util.Constants.USER_FULL_NAME
 import com.suret.lafyuu.util.PopUps
 import com.suret.lafyuu.util.PreferenceHelper
 import com.suret.lafyuu.util.PreferenceHelper.set
@@ -110,7 +111,10 @@ class LoginFragment : Fragment() {
                                 requireContext(),
                                 SETTINGS_PREF
                             )[TOKEN] = "Bearer ${event.result.token}"
-                            Log.d("tokenss", event.result.token)
+                            PreferenceHelper.customPrefs(
+                                requireContext(),
+                                SETTINGS_PREF
+                            )[USER_FULL_NAME] = event.result.name
                             findNavController().navigate(R.id.action_login_to_nestedFragment)
                         }
                     }
