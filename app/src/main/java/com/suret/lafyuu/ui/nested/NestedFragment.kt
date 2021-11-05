@@ -1,5 +1,7 @@
 package com.suret.lafyuu.ui.nested
 
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +10,10 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.setupWithNavController
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.request.target.SimpleTarget
+import com.bumptech.glide.request.transition.Transition
 import com.suret.lafyuu.R
 import com.suret.lafyuu.databinding.FragmentNestedBinding
 import com.suret.lafyuu.util.ChangeStatusBarColor
@@ -47,9 +53,13 @@ class NestedFragment : Fragment() {
         nestedBinding.apply {
             bottomNav.setupWithNavController(navController)
 
-            bottomNav.setOnNavigationItemReselectedListener {
-                //empty
-            }
+
+            nestedBinding.bottomNav.selectedItemId = R.id.home
+            val userProfileUrl = "https://i.pinimg.com/originals/fd/1f/79/fd1f79bccedb91b28bebeaf2f84159f3.jpg"
+
+            nestedBinding.bottomNav.loadImage(
+                userProfileUrl, R.id.account, R.drawable.ic_launcher_foreground
+            )
 
             mainToolbar.setOnMenuItemClickListener { item ->
                 val navigation =

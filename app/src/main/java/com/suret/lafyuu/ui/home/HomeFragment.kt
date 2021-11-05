@@ -71,36 +71,36 @@ class HomeFragment : Fragment() {
         val progressBar = PopUps.progressDialog(requireActivity())
 
         homeBinding.apply {
-
-            categoryRecyclerView.adapter = categoryAdapter
-            token = PreferenceHelper.customPrefs(requireContext(), SETTINGS_PREF)
-                .getString(TOKEN, "")
-
-            token?.let {
-                homeViewModel.getHomeList(it)
-            }
-            viewLifecycleOwner.lifecycleScope.launchWhenCreated {
-                homeViewModel.homeFlow.collect { event ->
-                    when (event) {
-                        is HomeViewModel.Event.Loading -> {
-                            progressBar.show()
-                        }
-                        is HomeViewModel.Event.Failure -> {
-                            progressBar.dismiss()
-                        }
-                        is HomeViewModel.Event.Success -> {
-                            progressBar.dismiss()
-                            event.result?.let {
-                                val categoryModel = it.categories
-                                val advertisement = it.advertisments
-                                setViewPager(advertisement)
-                                categoryAdapter.differ.submitList(categoryModel)
-                            }
-                        }
-                    }
-
-                }
-            }
+//
+//            categoryRecyclerView.adapter = categoryAdapter
+//            token = PreferenceHelper.customPrefs(requireContext(), SETTINGS_PREF)
+//                .getString(TOKEN, "")
+//
+//            token?.let {
+//                homeViewModel.getHomeList(it)
+//            }
+//            viewLifecycleOwner.lifecycleScope.launchWhenCreated {
+//                homeViewModel.homeFlow.collect { event ->
+//                    when (event) {
+//                        is HomeViewModel.Event.Loading -> {
+//                            progressBar.show()
+//                        }
+//                        is HomeViewModel.Event.Failure -> {
+//                            progressBar.dismiss()
+//                        }
+//                        is HomeViewModel.Event.Success -> {
+//                            progressBar.dismiss()
+//                            event.result?.let {
+//                                val categoryModel = it.categories
+//                                val advertisement = it.advertisments
+//                                setViewPager(advertisement)
+//                                categoryAdapter.differ.submitList(categoryModel)
+//                            }
+//                        }
+//                    }
+//
+//                }
+//            }
 
 
 //            viewPager.adapter = itemPagerAdapter

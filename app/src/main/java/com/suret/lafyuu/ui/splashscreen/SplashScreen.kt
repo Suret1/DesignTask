@@ -25,16 +25,16 @@ class SplashScreen : Fragment(R.layout.fragment_splash_screen) {
             R.color.blue,
             R.color.blue
         )
-        token = PreferenceHelper.customPrefs(requireContext(), SETTINGS_PREF)
-            .getString(TOKEN, "")
-        val r = Runnable {
-            if (token.isNullOrEmpty()) {
-                view.findNavController().navigate(R.id.action_splashScreen_to_loginFragment)
-            } else {
+//        token = PreferenceHelper.customPrefs(requireContext(), SETTINGS_PREF)
+//            .getString(TOKEN, "")
+//        val r = Runnable {
+//            if (token.isNullOrEmpty()) {
+//                view.findNavController().navigate(R.id.action_splashScreen_to_loginFragment)
+//            } else {
                 view.findNavController().navigate(R.id.action_splashScreen_to_nestedFragment)
-            }
-        }
-        Handler(Looper.getMainLooper()).postDelayed(r, 1)
+//            }
+//        }
+//        Handler(Looper.getMainLooper()).postDelayed(r, 1)
 
     }
 

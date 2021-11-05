@@ -18,7 +18,7 @@
         android:title="@string/offer" />
     <item
         android:id="@+id/account"
-        android:icon="@drawable/account"
+
         android:title="@string/account" />
 
 </menu>
