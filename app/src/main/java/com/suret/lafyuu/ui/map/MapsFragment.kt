@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -27,8 +28,10 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 
 import com.google.android.gms.maps.model.MarkerOptions
+import com.suret.lafyuu.databinding.FragmentMapsBinding
 
 class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
+    private val binding by lazy { FragmentMapsBinding.inflate(layoutInflater) }
     private lateinit var mMap: GoogleMap
     private lateinit var lastLocation: Location
     private lateinit var fusedLocationClient: FusedLocationProviderClient
@@ -41,8 +44,8 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickList
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_maps, container, false)
+    ): View {
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -50,6 +53,11 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickList
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(this)
+
+        binding.toolbarDetails.setNavigationOnClickListener {
+            Toast.makeText(requireContext(), "sadsadsadasdasd", Toast.LENGTH_SHORT).show()
+        }
+
     }
 
     private fun setUpMap() {
@@ -73,14 +81,21 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickList
                 mMap.addMarker(
                     MarkerOptions()
                         .position(currentLatLong)
-                        .icon(bitmapDescriptorFromVector(requireActivity(), R.drawable.ic_baseline_directions_car_24))
+                        .icon(
+                            bitmapDescriptorFromVector(
+                                requireActivity(),
+                                R.drawable.ic_baseline_directions_car_24
+                            )
+                        )
                 )
-                mMap.addCircle(CircleOptions()
-                    .center(currentLatLong)
-                    .strokeColor(R.color.black)
-                    .strokeWidth(10f)
-                    .fillColor(R.color.teal_700)
-                    .radius(30.0))
+                mMap.addCircle(
+                    CircleOptions()
+                        .center(currentLatLong)
+                        .strokeColor(R.color.black)
+                        .strokeWidth(10f)
+                        .fillColor(R.color.teal_700)
+                        .radius(30.0)
+                )
 
                 mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLong, 20f))
             }
