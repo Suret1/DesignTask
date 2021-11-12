@@ -55,7 +55,8 @@ class NestedFragment : Fragment() {
 
 
             nestedBinding.bottomNav.selectedItemId = R.id.home
-            val userProfileUrl = "https://i.pinimg.com/originals/fd/1f/79/fd1f79bccedb91b28bebeaf2f84159f3.jpg"
+            val userProfileUrl =
+                "https://i.pinimg.com/originals/fd/1f/79/fd1f79bccedb91b28bebeaf2f84159f3.jpg"
 
             nestedBinding.bottomNav.loadImage(
                 userProfileUrl, R.id.account, R.drawable.ic_launcher_foreground
@@ -75,7 +76,7 @@ class NestedFragment : Fragment() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.categoryFragment, R.id.superFlashSaleFragment, R.id.favorite -> hideBottomNavAndActionBar()
-                R.id.account, R.id.offer -> hideActionBar()
+                R.id.account, R.id.offer, R.id.map -> hideActionBar()
                 else -> showBottomNavAndActionBar()
             }
         }
